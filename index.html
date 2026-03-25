@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Intelligence — Tuesday, 25 March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#f5f0e8;--accent:#c8382a;--gold:#b8860b;--mid:#5a5a5a;--rule:#c8b89a;--link:#1a3a6e;--spirits:#4a1f6e;--mktg:#0d5c4e;--nav-h:56px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300}
+
+/* NAV */
+.topic-nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:2px solid var(--accent);height:var(--nav-h);display:flex;align-items:center;padding:0 48px;gap:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.topic-nav::-webkit-scrollbar{display:none}
+.nav-brand{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--paper);white-space:nowrap;margin-right:24px;flex-shrink:0}
+.nav-div{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px;flex-shrink:0}
+.nb{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;transition:background .15s,color .15s;cursor:pointer;border:none;background:transparent}
+.nb:hover,.nb.active{background:var(--accent);color:#fff}
+.nb.sp:hover,.nb.sp.active{background:var(--spirits);color:#fff}
+.nb.mk:hover,.nb.mk.active{background:var(--mktg);color:#fff}
+
+/* MASTHEAD */
+.masthead{border-bottom:3px double var(--ink);padding:28px 48px 20px;display:flex;justify-content:space-between;align-items:flex-end}
+.me{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+.mt{font-family:'Playfair Display',serif;font-weight:900;font-size:42px;line-height:1;letter-spacing:-1px}
+.mr{text-align:right}
+.md{font-family:'Playfair Display',serif;font-size:13px;color:var(--mid);line-height:1.6}
+.mned{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-top:4px}
+
+/* TICKER */
+.alert-bar{background:var(--ink);color:var(--paper);padding:8px 48px;display:flex;align-items:center;gap:16px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;overflow:hidden}
+.al{background:var(--accent);color:#fff;padding:2px 8px;font-size:9px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.as{white-space:nowrap;animation:scl 65s linear infinite;opacity:.85}
+@keyframes scl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* GLOBAL KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--ink);margin-bottom:40px;background:#fff}
+.kpi{padding:16px 18px;border-right:1px solid var(--ink);text-align:center}
+.kpi:last-child{border-right:none}
+.kn{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;display:block;line-height:1;margin-bottom:3px}
+.kn.red{color:var(--accent)}
+.kn.grn{color:#1a7a40}
+.kn.amb{color:var(--gold)}
+.kl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);line-height:1.35}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:40px 48px 80px}
+.sa{display:block;position:relative;top:calc(-1 * var(--nav-h) - 16px);visibility:hidden}
+.sh{display:flex;align-items:center;gap:16px;margin-bottom:24px;margin-top:48px}
+.sh:first-child{margin-top:0}
+.st{background:var(--ink);color:var(--paper);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;white-space:nowrap}
+.st.sp{background:var(--spirits)}
+.st.mk{background:var(--mktg)}
+.sr{flex:1;height:1px;background:var(--rule)}
+
+/* STORY ELEMENTS */
+.sk{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:block}
+.sh2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.sh2.lg{font-size:30px}
+.sh2.sm{font-size:16px;margin-bottom:6px}
+.sb{font-size:14px;line-height:1.8;color:#222}
+.sb p+p{margin-top:10px}
+.sb.sm{font-size:13px;color:#333}
+.pq{border-left:3px solid var(--accent);padding:8px 16px;margin:16px 0;font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--ink);line-height:1.5}
+
+/* SOURCE + READ ROW */
+.smeta{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px}
+.badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border:1px solid currentColor;border-radius:2px;white-space:nowrap}
+.s-nyt{color:#111;border-color:#111;background:#fff}
+.s-sem{color:#d48a00;border-color:#d48a00;background:rgba(212,138,0,.08)}
+.s-up{color:#1a55c0;border-color:#1a55c0;background:rgba(26,85,192,.07)}
+.s-run{color:#7c3aed;border-color:#7c3aed;background:rgba(124,58,237,.07)}
+.s-reu{color:#e07000;border-color:#e07000;background:rgba(224,112,0,.07)}
+.s-exp{color:#005f3e;border-color:#005f3e;background:rgba(0,95,62,.07)}
+.s-ft{color:#c8460e;border-color:#c8460e;background:rgba(200,70,14,.07)}
+.s-qz{color:#c0392b;border-color:#c0392b;background:rgba(192,57,43,.07)}
+.s-vox{color:#c9a900;border-color:#c9a900;background:rgba(201,169,0,.07)}
+.s-vp{color:#8B0000;border-color:#8B0000;background:rgba(139,0,0,.07)}
+.s-jd{color:#2e7d32;border-color:#2e7d32;background:rgba(46,125,50,.07)}
+.s-wb{color:#004f76;border-color:#004f76;background:rgba(0,79,118,.07)}
+.s-gdi{color:#5c4033;border-color:#5c4033;background:rgba(92,64,51,.07)}
+.s-rh{color:#00c805;border-color:#00c805;background:rgba(0,200,5,.07)}
+.s-sec{color:#0d5c4e;border-color:#0d5c4e;background:rgba(13,92,78,.07)}
+.s-vai{color:#e91e8c;border-color:#e91e8c;background:rgba(233,30,140,.07)}
+
+/* READ BUTTON — opens modal */
+.rb{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--link);text-decoration:none;padding:3px 9px;border:1px solid var(--link);border-radius:2px;transition:background .15s,color .15s;white-space:nowrap;cursor:pointer;background:transparent}
+.rb:hover{background:var(--link);color:#fff}
+.rb::after{content:" →"}
+
+/* GRID LAYOUTS */
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);margin-bottom:40px}
+.lm{padding:32px;border-right:1px solid var(--ink)}
+.ls{padding:0;display:flex;flex-direction:column}
+.si{padding:22px 28px;flex:1}
+.si+.si{border-top:1px solid var(--rule)}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-bottom:40px}
+.two-col{display:grid;grid-template-columns:2fr 1fr;border:1px solid var(--ink);margin-bottom:40px}
+.col{padding:28px;border-right:1px solid var(--ink)}
+.col:last-child{border-right:none}
+.col .sh2{font-size:17px;margin-bottom:8px}
+.col .sb{font-size:13px;line-height:1.75}
+.two-col .col .sh2{font-size:20px}
+
+/* SIGNAL ITEMS */
+.sgi{padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--rule)}
+.sgi:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sgt{font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;margin-bottom:4px}
+.sgb{font-size:12px;line-height:1.6;color:#444;margin-bottom:8px}
+
+/* TAGS */
+.tag{display:inline-block;background:var(--rule);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:2px 7px;color:var(--ink);margin-bottom:8px}
+.tag.red{background:var(--accent);color:#fff}
+.tag.gold{background:var(--gold);color:#fff}
+.tag.spt{background:var(--spirits);color:#fff}
+.tag.mkt{background:var(--mktg);color:#fff}
+
+/* SPIRITS */
+.spirits-wrap{border:2px solid var(--spirits);margin-bottom:40px}
+.spirits-hdr{background:var(--spirits);color:#fff;padding:16px 28px}
+.spirits-hdr-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.spirits-hdr-s{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.75;margin-top:3px}
+.spirits-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.scol{padding:24px 28px;border-right:1px solid rgba(74,31,110,.2)}
+.scol:last-child{border-right:none}
+.scol .sk{color:var(--spirits)}
+.scol .sh2{font-size:16px;margin-bottom:8px}
+.scol .sb{font-size:13px;line-height:1.7}
+.spirits-strip{border-top:1px solid rgba(74,31,110,.2);padding:20px 28px;background:rgba(74,31,110,.03)}
+.spirits-strip-t{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--spirits);margin-bottom:12px}
+.sbulls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 24px}
+.sbull{font-size:12px;line-height:1.5;color:#333;padding-left:12px;border-left:2px solid var(--spirits)}
+
+/* MARKETING SECTION */
+.mktg-wrap{border:2px solid var(--mktg);margin-bottom:40px}
+.mktg-hdr{background:var(--mktg);color:#fff;padding:16px 28px}
+.mktg-hdr-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.mktg-hdr-s{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.75;margin-top:3px}
+.mktg-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.mcol{padding:24px 28px;border-right:1px solid rgba(13,92,78,.2)}
+.mcol:last-child{border-right:none}
+.mcol .sk{color:var(--mktg)}
+.mcol .sh2{font-size:16px;margin-bottom:8px}
+.mcol .sb{font-size:13px;line-height:1.7}
+
+/* NOT INCLUDED LIST */
+.ni-strip{border:1px solid var(--rule);background:rgba(200,184,154,.1);padding:20px 28px;margin-bottom:10px}
+.ni-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
+.ni-list{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none}
+.ni-list li{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);padding-left:10px;border-left:2px solid var(--rule);line-height:1.4}
+.ni-btn{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--link);padding:2px 6px;border:1px solid var(--link);border-radius:2px;background:transparent;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .12s,color .12s}
+.ni-btn:hover{background:var(--link);color:#fff}
+.ni-btn::after{content:" →"}
+
+/* FOOTER */
+.footer{border-top:3px double var(--ink);padding:20px 48px;display:flex;justify-content:space-between;align-items:center}
+.fl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+.fr{font-family:'Playfair Display',serif;font-size:12px;color:var(--mid);font-style:italic}
+
+/* ── MODAL READER ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,.7);z-index:1000;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--paper);max-width:780px;width:100%;max-height:90vh;border:2px solid var(--ink);display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.modal-header{background:var(--ink);color:var(--paper);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-source{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.7}
+.modal-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-top:4px;line-height:1.3}
+.modal-close{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);background:transparent;border:1px solid rgba(255,255,255,.3);padding:6px 12px;cursor:pointer;flex-shrink:0;margin-left:16px;transition:background .15s,color .15s}
+.modal-close:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.modal-body{overflow-y:auto;padding:28px 32px;flex:1}
+.modal-body p{font-size:14px;line-height:1.85;color:#222;margin-bottom:14px}
+.modal-body p:last-child{margin-bottom:0}
+.modal-body h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin:20px 0 8px;color:var(--ink)}
+.modal-body blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:16px 0;font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#444}
+.modal-body ul{margin:8px 0 14px 20px}
+.modal-body li{font-size:13px;line-height:1.7;color:#333;margin-bottom:4px}
+.modal-footer{padding:14px 24px;border-top:1px solid var(--rule);background:rgba(200,184,154,.15);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.modal-footer-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.page>*{animation:fadeUp .5s ease both}
+.page>*:nth-child(1){animation-delay:.05s}.page>*:nth-child(2){animation-delay:.1s}
+.page>*:nth-child(3){animation-delay:.15s}.page>*:nth-child(4){animation-delay:.2s}
+.page>*:nth-child(5){animation-delay:.25s}.page>*:nth-child(6){animation-delay:.3s}
+.page>*:nth-child(7){animation-delay:.35s}.page>*:nth-child(8){animation-delay:.4s}
+.page>*:nth-child(9){animation-delay:.45s}.page>*:nth-child(10){animation-delay:.5s}
+
+@media(max-width:768px){
+  .topic-nav{padding:0 12px}.masthead{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}.mt{font-size:30px}
+  .page{padding:20px 16px 60px}
+  .lead-grid,.three-col,.two-col,.kpi-strip,.spirits-grid,.sbulls,.mktg-grid{grid-template-columns:1fr}
+  .lm,.col,.si,.scol,.mcol{border-right:none;border-bottom:1px solid var(--ink)}
+  .col:last-child,.scol:last-child,.mcol:last-child{border-bottom:none}
+  .kpi{border-right:none;border-bottom:1px solid var(--ink)}.kpi:last-child{border-bottom:none}
+  .alert-bar,.footer{padding:8px 16px}
+  .footer{flex-direction:column;gap:6px;align-items:flex-start}
+  .modal{max-height:95vh;margin:0}
+  .ni-list li{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div>
+    <div class="me">Eduardo Sousa — Private Briefing</div>
+    <div class="mt">Executive<br>Intelligence</div>
+  </div>
+  <div class="mr">
+    <div class="md">Tuesday, 25 March 2026<br>AM Full Edition · 06:00</div>
+    <div class="mned">All newsletters · Last 24 hours</div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="alert-bar">
+  <span class="al">⚡ Live</span>
+  <span class="as">Gulf states back US strikes on Iran &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Venezuela oil: Chevron faces White House deadline &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; US gas prices near $4/gal threshold &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Venture Global LNG surges +128% YTD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Berkshire Hathaway buys $1.8B Tokio Marine stake &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $580M in suspicious crude oil trades flagged &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portugal housing up 17.6% in 12 months &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Anthropic launches remote computer use API &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpenAI offers PE investors 17.5% guaranteed return &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Luma AI releases Uni-1 unified video model &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Zuckerberg: AI will run as CEO agents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jensen Huang says AGI is already here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Molson Coors acquires Monaco RTD brand &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reyes Holdings buys RNDC in major distributor deal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No/low alcohol segment shows widening promise-performance gap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wing drones expand commercial delivery network &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Meta AI deploys internal performance review agents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Barclays proposes pan-European bank merger &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gulf states back US strikes on Iran &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Venezuela oil: Chevron faces White House deadline &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; US gas prices near $4/gal threshold &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Venture Global LNG surges +128% YTD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Berkshire Hathaway buys $1.8B Tokio Marine stake &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $580M in suspicious crude oil trades flagged &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portugal housing up 17.6% in 12 months &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Anthropic launches remote computer use API &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpenAI offers PE investors 17.5% guaranteed return &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Luma AI releases Uni-1 unified video model &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Zuckerberg: AI will run as CEO agents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jensen Huang says AGI is already here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Molson Coors acquires Monaco RTD brand &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reyes Holdings buys RNDC in major distributor deal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No/low alcohol segment shows widening promise-performance gap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wing drones expand commercial delivery network &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Meta AI deploys internal performance review agents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Barclays proposes pan-European bank merger</span>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="topic-nav">
+  <span class="nav-brand">EI ·</span>
+  <div class="nav-div"></div>
+  <a class="nb active" href="#geo" onclick="setA(this)">🌍 Geopolitics</a>
+  <a class="nb" href="#mkt" onclick="setA(this)">📊 Markets</a>
+  <a class="nb" href="#tech" onclick="setA(this)">🤖 Technology</a>
+  <a class="nb" href="#hlth" onclick="setA(this)">💊 Health</a>
+  <a class="nb mk" href="#mktg" onclick="setA(this)">📣 Marketing</a>
+  <a class="nb" href="#radar" onclick="setA(this)">📡 CEO Radar</a>
+  <a class="nb sp" href="#spr" onclick="setA(this)">🍷 Spirits</a>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+<!-- ═══ GLOBAL KPI STRIP ═══ -->
+<div class="kpi-strip">
+  <div class="kpi">
+    <span class="kn red">↑ Risk</span>
+    <span class="kl">Oil Supply Risk<br>Gulf strikes threat</span>
+  </div>
+  <div class="kpi">
+    <span class="kn grn">+128%</span>
+    <span class="kl">Venture Global LNG<br>YTD performance</span>
+  </div>
+  <div class="kpi">
+    <span class="kn red">$3.96</span>
+    <span class="kl">US Gas / Gallon<br>Approaching $4 threshold</span>
+  </div>
+  <div class="kpi">
+    <span class="kn amb">$1.8B</span>
+    <span class="kl">Berkshire → Tokio Marine<br>Stake acquired</span>
+  </div>
+  <div class="kpi">
+    <span class="kn red">+17.6%</span>
+    <span class="kl">Portugal Housing<br>12-month price rise</span>
+  </div>
+  <div class="kpi">
+    <span class="kn red">$580M</span>
+    <span class="kl">Suspicious Oil Trades<br>Flagged by regulators</span>
+  </div>
+  <div class="kpi">
+    <span class="kn amb">17.5%</span>
+    <span class="kl">OpenAI PE Guarantee<br>Return floor offered</span>
+  </div>
+</div>
+
+<!-- ═══ I. GEOPOLITICS ═══ -->
+<span class="sa" id="geo"></span>
+<div class="sh"><span class="st">I. Geopolitics &amp; Energy</span><div class="sr"></div></div>
+
+<!-- Lead + Sidebar -->
+<div class="lead-grid">
+  <div class="lm">
+    <span class="tag red">Lead Story</span>
+    <span class="sk">Middle East · Iran</span>
+    <div class="sh2 lg">Gulf Nations Align Behind US Strikes — Iran Braces for Escalation</div>
+    <div class="sb">
+      <p>Saudi Arabia, the UAE, and other Gulf states have quietly signalled support for US military strikes targeting Iranian nuclear and missile infrastructure, according to Semafor's sources. The alignment marks a significant diplomatic shift, with Gulf monarchies previously reluctant to openly back military action against Tehran.</p>
+      <p>Iran has responded by putting its air defence systems on high alert and deploying naval assets in the Strait of Hormuz. Oil markets are pricing in the disruption risk — Brent crude jumped 2.3% overnight, adding to year-to-date gains driven by supply uncertainty.</p>
+      <p>The White House has not confirmed the diplomatic outreach but senior officials publicly stated that "all options remain on the table." European allies are reportedly urging restraint ahead of their own diplomatic window.</p>
+    </div>
+    <div class="pq">"Gulf partners have communicated, in private channels, their readiness to support a limited strike operation." — Semafor diplomatic source</div>
+    <div class="smeta">
+      <span class="badge s-sem">Semafor</span>
+      <span class="badge s-nyt">NYT</span>
+      <button class="rb" onclick="openModal('geo_lead')">Read</button>
+    </div>
+  </div>
+  <div class="ls">
+    <div class="si">
+      <span class="tag gold">Analysis</span>
+      <span class="sk">US Strategy · Iran</span>
+      <div class="sh2 sm">Washington's Iran Bet — "Worse Than Iraq"?</div>
+      <div class="sb sm">Critics inside the national security establishment warn that a limited strike on Iran's nuclear sites risks a protracted entanglement reminiscent of 2003 Iraq — without a clear end state or post-conflict plan. The NYT's coverage surfaces significant dissent among former officials.</div>
+      <div class="smeta">
+        <span class="badge s-nyt">NYT Opinion</span>
+        <button class="rb" onclick="openModal('geo_s1')">Read</button>
+      </div>
+    </div>
+    <div class="si">
+      <span class="sk">Ukraine · Intelligence</span>
+      <div class="sh2 sm">US Resumes Intel Sharing with Kyiv After Pause</div>
+      <div class="sb sm">After a brief freeze tied to Zelensky's White House tensions, US intelligence sharing with Ukrainian forces has resumed, including targeting data for Russian logistics hubs. The move signals that despite rhetorical friction, operational support continues at a high level.</div>
+      <div class="smeta">
+        <span class="badge s-sem">Semafor</span>
+        <span class="badge s-nyt">NYT</span>
+        <button class="rb" onclick="openModal('geo_s2')">Read</button>
+      </div>
+    </div>
+    <div class="si">
+      <span class="tag red">Watch</span>
+      <span class="sk">Taiwan · Defence</span>
+      <div class="sh2 sm">Taiwan's Missile Stockpiles Critically Depleted</div>
+      <div class="sb sm">A new assessment shared with congressional defence committees finds Taiwan's anti-ship and surface-to-air missile reserves substantially below the levels needed to sustain a 30-day conflict. Replenishment timelines stretch well past 2028 under current production rates.</div>
+      <div class="smeta">
+        <span class="badge s-sem">Semafor</span>
+        <button class="rb" onclick="openModal('geo_s3')">Read</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Three-col -->
+<div class="three-col">
+  <div class="col">
+    <span class="tag">Energy</span>
+    <span class="sk">Venezuela · Chevron</span>
+    <div class="sh2">Chevron Faces White House Deadline on Venezuela Operations</div>
+    <div class="sb">The Trump administration has issued Chevron a hard deadline to wind down Venezuelan oil operations, as the White House uses energy access as leverage in its broader sanctions standoff with Maduro. Analysts warn the move could accelerate Venezuelan crude exports shifting to China, reducing US strategic leverage over Caracas.</div>
+    <div class="smeta">
+      <span class="badge s-nyt">NYT</span>
+      <span class="badge s-reu">Reuters</span>
+      <button class="rb" onclick="openModal('geo_c1')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag">Energy · Geopolitics</span>
+    <span class="sk">Africa · LNG</span>
+    <div class="sh2">Africa's Gas Race: New Scramble for the Continent's LNG Reserves</div>
+    <div class="sb">European energy majors and Gulf sovereign funds are locked in a new scramble to secure long-term supply agreements from Mozambique, Tanzania, and Senegal. The competition is intensifying as European governments seek to lock in post-Russia supply chains before 2030 demand peaks.</div>
+    <div class="smeta">
+      <span class="badge s-nyt">NYT</span>
+      <span class="badge s-ft">FT</span>
+      <button class="rb" onclick="openModal('geo_c2')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag red">Portugal</span>
+    <span class="sk">Energy · Domestic</span>
+    <div class="sh2">Portugal Hit by Oil Supply Shock as Gulf Disruption Ripples West</div>
+    <div class="sb">Portuguese refiners and logistics operators are warning of input cost spikes as Gulf supply uncertainty adds a premium to European crude imports. Energy minister flagged "contingency protocols" as Galp monitors its Middle Eastern supply contracts closely amid the Iran escalation.</div>
+    <div class="smeta">
+      <span class="badge s-exp">Expresso</span>
+      <span class="badge s-reu">Reuters</span>
+      <button class="rb" onclick="openModal('geo_c3')">Read</button>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Geopolitics — not covered above</div>
+  <ul class="ni-list">
+    <li>EU-Australia Free Trade Agreement reaches final text — ratification expected Q3 2026 <button class="ni-btn" onclick="openModal('ni_geo_1')">Read</button></li>
+    <li>$580M in suspicious crude oil trades flagged by CFTC and UK regulators — sanctions evasion probe widens <button class="ni-btn" onclick="openModal('ni_geo_2')">Read</button></li>
+    <li>South Korea's new president signals return to trilateral Japan-Korea-US security framework</li>
+    <li>India-Pakistan LOC tensions re-emerge after cross-border drone incident</li>
+    <li>Turkey increases drone exports to Gulf partners as NATO relationship strains</li>
+  </ul>
+</div>
+
+<!-- ═══ II. MARKETS & FINANCE ═══ -->
+<span class="sa" id="mkt"></span>
+<div class="sh"><span class="st">II. Markets &amp; Finance</span><div class="sr"></div></div>
+
+<div class="lead-grid">
+  <div class="lm">
+    <span class="tag red">Lead Story</span>
+    <span class="sk">Private Markets · Credit</span>
+    <div class="sh2 lg">Private Markets Face Valuation Reckoning as Rate Plateau Bites</div>
+    <div class="sb">
+      <p>The Daily Upside's deep-dive this morning flags a structural stress building across private equity and private credit funds: mark-to-market pressures are intensifying as the Fed's extended plateau has eroded the exit windows that GPs had pencilled in for 2025–26. Deal flow is down 34% year-on-year, while the denominator effect is keeping LP commitments soft.</p>
+      <p>Secondary markets are filling the gap — but at steep discounts. The analysis notes that several mid-market PE funds are sitting on vintage-2021 portfolios where median EV/EBITDA multiples have compressed from 14x to under 9x, with no clear liquidity path before 2027.</p>
+      <p>For CEOs with PE-backed businesses, this creates a dual pressure: operational performance expectations remain high even as the exit horizon extends, and covenant pressure on overleveraged portfolio companies is quietly rising.</p>
+    </div>
+    <div class="pq">"We are in the longest and most uncomfortable hold cycle since 2009. The question is no longer when the exit comes — it's whether the exit looks anything like the entry." — Daily Upside, quoting senior LP</div>
+    <div class="smeta">
+      <span class="badge s-up">Daily Upside</span>
+      <button class="rb" onclick="openModal('mkt_lead')">Read</button>
+    </div>
+  </div>
+  <div class="ls">
+    <div class="si">
+      <span class="tag grn">Equity</span>
+      <span class="sk">Energy · LNG</span>
+      <div class="sh2 sm">Venture Global Up +128% YTD After LNG Facility Goes Operational</div>
+      <div class="sb sm">The newly listed Venture Global LNG has become 2026's standout equity story, posting a 128% gain year-to-date after its Louisiana facility shipped its first commercial cargo. The stock reflects a bet on sustained European LNG demand and US export infrastructure as the Gulf uncertainty premium persists.</div>
+      <div class="smeta">
+        <span class="badge s-up">Daily Upside</span>
+        <button class="rb" onclick="openModal('mkt_s1')">Read</button>
+      </div>
+    </div>
+    <div class="si">
+      <span class="tag amb">Deal</span>
+      <span class="sk">Insurance · Japan</span>
+      <div class="sh2 sm">Berkshire Hathaway Acquires $1.8B Stake in Tokio Marine</div>
+      <div class="sb sm">Berkshire Hathaway's latest filing reveals a $1.8 billion stake in Tokio Marine Holdings, Japan's largest non-life insurer. The move deepens Buffett's Japan portfolio thesis — betting on capital-efficient, dividend-growing Japanese financials at a time when yen weakness has made entries attractive for USD-denominated investors.</div>
+      <div class="smeta">
+        <span class="badge s-up">Daily Upside</span>
+        <span class="badge s-ft">FT</span>
+        <button class="rb" onclick="openModal('mkt_s2')">Read</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Markets — not covered above</div>
+  <ul class="ni-list">
+    <li>TotalEnergies completes buyout of offshore wind joint venture from BP — $2.4B deal <button class="ni-btn" onclick="openModal('ni_mkt_1')">Read</button></li>
+    <li>Estée Lauder warns on full-year guidance — China travel retail still soft, activist pressure mounts</li>
+    <li>Puig luxury group flags slowdown in US prestige fragrance market after record 2025</li>
+    <li>US 10-year yield inches toward 4.6% ahead of Fed minutes release tomorrow</li>
+    <li>Dollar weakens as Gulf risk premium boosts commodity currencies (AUD, CAD, NOK)</li>
+  </ul>
+</div>
+
+<!-- ═══ III. TECHNOLOGY & AI ═══ -->
+<span class="sa" id="tech"></span>
+<div class="sh"><span class="st">III. Technology &amp; Artificial Intelligence</span><div class="sr"></div></div>
+
+<div class="two-col">
+  <div class="col">
+    <span class="tag red">Lead Story</span>
+    <span class="sk">AI Infrastructure · API</span>
+    <div class="sh2">Anthropic Launches Remote Computer Use API — Agents Can Now Operate Live Systems</div>
+    <div class="sb">
+      <p>Anthropic has released its Remote Computer Use API, enabling Claude to operate desktop applications, browsers, and file systems on behalf of enterprise users via a secure cloud sandbox. Unlike local computer-use implementations, the remote version runs in Anthropic's managed environment — meaning companies can deploy agentic workflows without exposing their own infrastructure.</p>
+      <p>The practical implications are significant: customer support agents that can file tickets, refund orders, and update records without human intervention; data analysts who can run code, pull reports, and format outputs autonomously; and compliance workflows that can gather evidence, log decisions, and generate audit trails end-to-end.</p>
+      <p>The Rundown AI notes that this positions Anthropic directly against Microsoft's Copilot Studio and Salesforce's Agentforce — but with a model capability advantage that remains the key differentiator. Pricing is on a per-task basis, with enterprise contracts expected to anchor the early revenue.</p>
+    </div>
+    <div class="pq">"This is the moment where AI stops being a co-pilot and starts being the pilot. The question for every CEO is: which workflows are you ready to hand over?" — Rundown AI</div>
+    <div class="smeta">
+      <span class="badge s-run">Rundown AI</span>
+      <span class="badge s-sem">Semafor</span>
+      <button class="rb" onclick="openModal('tech_lead')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="sk">AI Signals</span>
+    <div class="sgi">
+      <div class="sgt">Luma AI Releases Uni-1 — First Unified Video Generation Model</div>
+      <div class="sgb">Luma's Uni-1 handles text-to-video, image-to-video, video extension, and style transfer within a single model architecture. Early benchmarks show significantly better temporal coherence than Sora. Creative agencies and ad production houses are the immediate targets.</div>
+      <div class="smeta">
+        <span class="badge s-run">Rundown AI</span>
+        <button class="rb" onclick="openModal('tech_sig1')">Read</button>
+      </div>
+    </div>
+    <div class="sgi">
+      <div class="sgt">Zuckerberg: AI Will Act as CEO-Level Agents Within 12 Months</div>
+      <div class="sgb">In an internal all-hands leaked to Semafor, Zuckerberg said Meta's AI roadmap assumes that AI systems will be capable of running entire business functions — including strategy, resource allocation, and hiring decisions — by early 2027. "The AI won't just assist the CEO. It will be a CEO."</div>
+      <div class="smeta">
+        <span class="badge s-sem">Semafor</span>
+        <button class="rb" onclick="openModal('tech_sig2')">Read</button>
+      </div>
+    </div>
+    <div class="sgi">
+      <div class="sgt">OpenAI Offers Private Equity Funds 17.5% Guaranteed Return Floor</div>
+      <div class="sgb">OpenAI's latest financing structure includes a novel 17.5% annual return guarantee for large PE investors — a mechanism that blends equity upside with debt-like protection. The Daily Upside flags this as a sign of fundraising pressure ahead of an anticipated IPO.</div>
+      <div class="smeta">
+        <span class="badge s-up">Daily Upside</span>
+        <button class="rb" onclick="openModal('tech_sig3')">Read</button>
+      </div>
+    </div>
+    <div class="sgi">
+      <div class="sgt">Jensen Huang: "AGI Is Already Here — We Just Haven't Named It Yet"</div>
+      <div class="sgb">NVIDIA's CEO made his clearest statement yet that current frontier AI systems meet his personal definition of AGI, telling an audience at GTC that the industry is "arguing about labels while the systems get on with the work." The framing has reignited definitional debates across the AI safety community.</div>
+      <div class="smeta">
+        <span class="badge s-run">Rundown AI</span>
+        <button class="rb" onclick="openModal('tech_sig4')">Read</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Technology — not covered above</div>
+  <ul class="ni-list">
+    <li>Meta confirms Llama 4 multimodal release for Q2 — open weights, 1M context window <button class="ni-btn" onclick="openModal('ni_tech_1')">Read</button></li>
+    <li>Apple's Vision Pro 2 reportedly delayed to 2027 — spatial computing pivot under review</li>
+    <li>Google DeepMind's AlphaFold 3 expanded to industrial enzyme design — biotech licensing deals follow</li>
+    <li>Microsoft and OpenAI renegotiate exclusivity clause as Azure dependency becomes leverage issue</li>
+    <li>Perplexity AI launches enterprise search product — taking direct aim at Glean and Coveo</li>
+  </ul>
+</div>
+
+<!-- ═══ IV. HEALTH, SOCIETY & CULTURE ═══ -->
+<span class="sa" id="hlth"></span>
+<div class="sh"><span class="st">IV. Health, Society &amp; Culture</span><div class="sr"></div></div>
+
+<div class="three-col">
+  <div class="col">
+    <span class="tag red">Consumer Pressure</span>
+    <span class="sk">Energy · Cost of Living</span>
+    <div class="sh2">Gas at $3.96 — The $4 Threshold That Moves Consumer Behaviour</div>
+    <div class="sb">The national average US gas price has reached $3.96/gallon, within striking distance of the psychologically significant $4 mark that historically triggers measurable shifts in consumer spending: reduced discretionary purchases, increased public transit use, and accelerated EV consideration among suburban families. Quartz and the NYT both flag this as a Q2 watchpoint for retail and fast-food sectors, whose delivery economics are disproportionately exposed.</div>
+    <div class="smeta">
+      <span class="badge s-nyt">NYT</span>
+      <span class="badge s-qz">Quartz</span>
+      <button class="rb" onclick="openModal('hlth_1')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag">Housing · Society</span>
+    <span class="sk">USA · Rust Belt</span>
+    <div class="sh2">Rust Belt Housing Squeeze: Midwest Cities Hit Hardest as Remote Work Recedes</div>
+    <div class="sb">Cities like Cleveland, Detroit, and Pittsburgh — once seen as affordable alternatives to coastal metros — are experiencing their own affordability crunch as remote-work migration reverses and local employment recoveries drive up rents. The NYT documents families earning $60–$80K being priced out of neighbourhoods where they were born. Policy responses remain slow and politically contested.</div>
+    <div class="smeta">
+      <span class="badge s-nyt">NYT</span>
+      <button class="rb" onclick="openModal('hlth_2')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag">Culture · Work</span>
+    <span class="sk">Workplace · Masculinity</span>
+    <div class="sh2">The Manosphere Enters the Workplace — HR Departments Are Unprepared</div>
+    <div class="sb">Vox's investigation finds that manosphere rhetoric — encompassing red-pill ideology, anti-DEI backlash, and "sigma male" framing — is now surfacing in workplace settings at measurable rates: in Slack channels, performance reviews, and management decisions. HR professionals interviewed say they lack clear frameworks to address it without triggering First Amendment or religious exemption complexities. Several Fortune 500 companies are quietly updating their codes of conduct in response.</div>
+    <div class="smeta">
+      <span class="badge s-vox">Vox</span>
+      <span class="badge s-nyt">NYT</span>
+      <button class="rb" onclick="openModal('hlth_3')">Read</button>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Health, Society — not covered above</div>
+  <ul class="ni-list">
+    <li>CDC faces $1.2B budget cut in reconciliation bill — epidemiological surveillance capacity at risk</li>
+    <li>FDA proposes new ultra-processed food labelling framework — industry lobbying in full swing</li>
+    <li>UK NHS AI diagnostics pilot shows 23% improvement in early cancer detection — NICE evaluation underway</li>
+    <li>Portugal's birth rate hits record low — government announces €400M family support package</li>
+    <li>Youth loneliness index at all-time high in US and UK — Surgeon General calls for national strategy</li>
+  </ul>
+</div>
+
+<!-- ═══ V. MARKETING, DIGITAL & GO-TO-MARKET ═══ -->
+<span class="sa" id="mktg"></span>
+<div class="sh"><span class="st mk">V. Marketing, Digital &amp; Go-to-Market</span><div class="sr"></div></div>
+
+<div class="mktg-wrap">
+  <div class="mktg-hdr">
+    <div class="mktg-hdr-t">Marketing &amp; Go-to-Market Intelligence</div>
+    <div class="mktg-hdr-s">AI-native marketing · Distribution channels · Consumer behaviour</div>
+  </div>
+  <div class="mktg-grid">
+    <div class="mcol">
+      <span class="sk">AI · Consumer</span>
+      <div class="sh2">Poke's AI Recipe Engine — Personalised Content at Infinite Scale</div>
+      <div class="sb">Poke, the DTC food brand, has launched an AI-native recipe recommendation engine that generates hyper-personalised content based on purchase history, dietary signals, and seasonal trends. Section AI highlights this as a template for the next generation of brand-owned content engines: zero marginal cost per piece of content, with engagement rates reportedly 3× above editorial baselines. The engine also feeds directly into email, push, and on-site personalisation.</div>
+      <div class="smeta">
+        <span class="badge s-sec">Section AI</span>
+        <span class="badge s-vai">Staying Ahead</span>
+        <button class="rb" onclick="openModal('mktg_1')">Read</button>
+      </div>
+    </div>
+    <div class="mcol">
+      <span class="sk">OpenAI · Advertising</span>
+      <div class="sh2">OpenAI Builds Ad Business — Targeting Search's $200B Revenue Pool</div>
+      <div class="sb">Semafor confirms OpenAI has hired a team of ad-tech veterans and is developing a native advertising format for ChatGPT — contextual placements that appear within AI-generated answers. The model differs from Google's keyword auction: ads are curated by the AI and surfaced only when they are "genuinely relevant" to the conversation. Brands including Unilever and P&G are in early pilots. The strategic threat to Google's search revenue is real and accelerating.</div>
+      <div class="smeta">
+        <span class="badge s-sem">Semafor</span>
+        <span class="badge s-run">Rundown AI</span>
+        <button class="rb" onclick="openModal('mktg_2')">Read</button>
+      </div>
+    </div>
+    <div class="mcol">
+      <span class="sk">AI · HR · Automation</span>
+      <div class="sh2">Meta Deploys AI Agents to Write Performance Reviews for 70,000 Staff</div>
+      <div class="sb">Staying Ahead and Semafor both report that Meta has begun deploying internal AI systems to draft performance reviews for its global workforce, using structured inputs from managers and project systems. The AI writes first drafts; humans review and approve. Meta frames this as efficiency. Critics — including some senior engineers — are questioning whether AI-drafted reviews will entrench existing bias patterns in promotion decisions.</div>
+      <div class="smeta">
+        <span class="badge s-vai">Staying Ahead</span>
+        <span class="badge s-sem">Semafor</span>
+        <button class="rb" onclick="openModal('mktg_3')">Read</button>
+      </div>
+    </div>
+  </div>
+  <div class="mktg-grid" style="border-top:1px solid rgba(13,92,78,.2)">
+    <div class="mcol">
+      <span class="sk">Delivery · Logistics</span>
+      <div class="sh2">Wing Drones Expand to 12 New US Markets — Last-Mile Costs Under Pressure</div>
+      <div class="sb">Alphabet's Wing has received FAA approvals for operations in 12 additional US metropolitan areas, bringing drone delivery to suburban density levels where unit economics are most favourable. Quartz notes that at scale, wing delivery costs are projected to undercut traditional last-mile courier rates by 40–60% — a structural shift that will reshape the logistics assumptions underpinning DTC brands and quick-commerce operators.</div>
+      <div class="smeta">
+        <span class="badge s-qz">Quartz</span>
+        <button class="rb" onclick="openModal('mktg_4')">Read</button>
+      </div>
+    </div>
+    <div class="mcol">
+      <span class="sk">AI · Hospitality</span>
+      <div class="sh2">AI Sommelier Services Hit the On-Trade — Menu Engineering at Scale</div>
+      <div class="sb">Several restaurant groups and hotel chains are deploying AI sommelier tools that personalise wine and spirits recommendations in real time based on dish, guest history, and inventory. Section AI profiles the technology and its GTM implications: the on-trade channel, long resistant to digital disruption, is now facing a wave of AI-native tools that compress the need for specialised human expertise on the floor.</div>
+      <div class="smeta">
+        <span class="badge s-sec">Section AI</span>
+        <span class="badge s-vai">Staying Ahead</span>
+        <button class="rb" onclick="openModal('mktg_5')">Read</button>
+      </div>
+    </div>
+    <div class="mcol">
+      <span class="sk">Real Estate · Tech</span>
+      <div class="sh2">Data Centres Now More Valuable Than Office Space — The Commercial Real Estate Flip</div>
+      <div class="sb">Quartz and the NYT both run the same striking datapoint this morning: data centre real estate valuations in key US markets now exceed office tower valuations on a per-square-foot basis. The inversion reflects AI infrastructure demand, energy grid access as a premium asset, and the continued collapse in office demand. For CFOs managing commercial real estate portfolios, the reallocation signal is now unambiguous.</div>
+      <div class="smeta">
+        <span class="badge s-qz">Quartz</span>
+        <span class="badge s-nyt">NYT</span>
+        <button class="rb" onclick="openModal('mktg_6')">Read</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Marketing &amp; Digital — not covered above</div>
+  <ul class="ni-list">
+    <li>Google's ad auction algorithm update — CPCs rise 8–15% across B2B verticals following quality score changes</li>
+    <li>LinkedIn introduces AI-native lead gen forms — integration with Salesforce and HubSpot in beta</li>
+    <li>TikTok Shop surpasses $1B US weekly GMV — beauty and personal care the dominant categories</li>
+    <li>Substack launches audio-native product — creator monetisation expands beyond text paywalls</li>
+    <li>B2B intent data market consolidates as 6sense acquires Bombora — unified signal layer emerges</li>
+  </ul>
+</div>
+
+<!-- ═══ VI. CEO RADAR ═══ -->
+<span class="sa" id="radar"></span>
+<div class="sh"><span class="st">VI. CEO Radar — Watch List</span><div class="sr"></div></div>
+
+<div class="three-col">
+  <div class="col">
+    <span class="tag red">Watch</span>
+    <span class="sk">AI · Defence · Governance</span>
+    <div class="sh2">Anthropic's DoD Contract — AI Ethics Meets National Security</div>
+    <div class="sb">Semafor reports that Anthropic has signed a contract with the US Department of Defense to provide Claude-based AI capabilities for intelligence analysis and logistics optimisation. The deal raises governance questions Anthropic has previously navigated carefully — the company's responsible scaling commitments were built around commercial, not military, use cases. Expect renewed pressure from safety researchers and civil liberties groups. For enterprise buyers, the signal is that the AI safety narrative is no longer a barrier to government contracting.</div>
+    <div class="smeta">
+      <span class="badge s-sem">Semafor</span>
+      <span class="badge s-run">Rundown AI</span>
+      <button class="rb" onclick="openModal('radar_1')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag amb">Regulatory</span>
+    <span class="sk">Prediction Markets · Compliance</span>
+    <div class="sh2">Kalshi Moves to Self-Regulate Before Washington Does It For Them</div>
+    <div class="sb">Prediction market operator Kalshi has announced a voluntary self-regulatory framework covering market manipulation, political event contracts, and data integrity — a pre-emptive move ahead of expected CFTC rulemaking. The Daily Upside frames this as a classic regulatory capture play: define the rules before the regulator does, and shape the compliance landscape in your favour. Polymarket is watching closely from its offshore perch. For executives running platforms in regulatory grey zones, this is the playbook.</div>
+    <div class="smeta">
+      <span class="badge s-up">Daily Upside</span>
+      <button class="rb" onclick="openModal('radar_2')">Read</button>
+    </div>
+  </div>
+  <div class="col">
+    <span class="tag">M&amp;A · Banking</span>
+    <span class="sk">Europe · Financial Services</span>
+    <div class="sh2">Barclays Proposes Pan-European Bank Merger to Compete with US Giants</div>
+    <div class="sb">Barclays CEO CS Venkatakrishnan has privately floated the concept of a pan-European banking merger — potentially involving one of three European partners — in response to the yawning competitive gap with JPMorgan, Bank of America, and Goldman on investment banking market share. The FT and Daily Upside both note that European banking union politics make any cross-border merger extraordinarily complex, but the strategic logic is finally becoming undeniable as US banks take 60%+ of European M&A advisory fees.</div>
+    <div class="smeta">
+      <span class="badge s-ft">FT</span>
+      <span class="badge s-up">Daily Upside</span>
+      <button class="rb" onclick="openModal('radar_3')">Read</button>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in CEO Radar — Watch List — not covered above</div>
+  <ul class="ni-list">
+    <li>Jamie Dimon succession speculation intensifies as JPMorgan board meets without external search announcement</li>
+    <li>SpaceX internal valuation reaches $380B on secondary markets — Starlink IPO window discussed for 2027</li>
+    <li>Boeing's new CEO faces first test: mechanics union rejects latest contract offer, strike threat re-emerges</li>
+    <li>Novo Nordisk's weight-loss drug patent challenge opens door for generic GLP-1 market by 2028</li>
+    <li>Adobe's generative AI revenue now 12% of total — pricing power experiment outperforming expectations</li>
+  </ul>
+</div>
+
+<!-- ═══ VII. SPIRITS & DRINKS ═══ -->
+<span class="sa" id="spr"></span>
+<div class="sh"><span class="st sp">VII. Spirits &amp; Drinks Industry</span><div class="sr"></div></div>
+
+<div class="spirits-wrap">
+  <div class="spirits-hdr">
+    <div class="spirits-hdr-t">Spirits &amp; Drinks Industry Intelligence</div>
+    <div class="spirits-hdr-s">Source: Spirits News · Wine Business Daily · Just Drinks · VinePair · Global Drinks Intel</div>
+  </div>
+  <div class="spirits-grid">
+    <div class="scol">
+      <span class="sk">M&amp;A · RTD</span>
+      <div class="sh2">Molson Coors Acquires Monaco RTD — Doubling Down on Premiumisation</div>
+      <div class="sb">Molson Coors has acquired Monaco Cocktails, the premium RTD brand known for its spirits-based, low-sugar positioning. The deal reflects a deliberate pivot by the brewer toward the RTD category as beer volumes continue their multi-year decline. Monaco's $50M+ retail sales base and strong off-premise velocity in the US Sun Belt made it an attractive bolt-on. Spirits News notes this is the third RTD acquisition by a major brewer in 18 months, confirming the category's strategic centrality to Big Beer's portfolio evolution.</div>
+      <div class="smeta">
+        <span class="badge s-wb">Wine Business</span>
+        <span class="badge s-jd">Just Drinks</span>
+        <button class="rb" onclick="openModal('spr_1')">Read</button>
+      </div>
+    </div>
+    <div class="scol">
+      <span class="sk">Distribution · M&amp;A</span>
+      <div class="sh2">Reyes Holdings Acquires RNDC — Creating a Dominant US Distributor</div>
+      <div class="sb">Reyes Holdings, already the largest US beer distributor, has completed its acquisition of Republic National Distributing Company (RNDC), creating a wine and spirits distribution entity with coverage across 46 states. Global Drinks Intel and Wine Business Daily both flag the consolidation implications: supplier pricing power will shift, smaller brands will face delisting risk, and the on-trade channel will see renegotiated terms. For brand owners, the question is how to maintain shelf presence when the buyer is now effectively a monopoly in many markets.</div>
+      <div class="smeta">
+        <span class="badge s-wb">Wine Business</span>
+        <span class="badge s-gdi">Global Drinks Intel</span>
+        <button class="rb" onclick="openModal('spr_2')">Read</button>
+      </div>
+    </div>
+    <div class="scol">
+      <span class="sk">No/Low · Strategy</span>
+      <div class="sh2">No/Low Alcohol: The Promise–Performance Gap Widens</div>
+      <div class="sb">A new VinePair and Just Drinks analysis finds that the no/low alcohol category is dramatically underdelivering against the investment it has attracted. Despite hundreds of millions poured into brand building, trial rates are strong but repeat purchase is weak — pointing to a product quality and occasion fit problem rather than a demand problem. The brands performing best are those positioned in the wellness occasion specifically, not those trying to replicate the full-ABV experience. For spirits brand managers, the lesson is to define the occasion before defining the product.</div>
+      <div class="smeta">
+        <span class="badge s-vp">VinePair</span>
+        <span class="badge s-jd">Just Drinks</span>
+        <button class="rb" onclick="openModal('spr_3')">Read</button>
+      </div>
+    </div>
+  </div>
+  <div class="spirits-strip">
+    <div class="spirits-strip-t">Quick Hits — Spirits &amp; Drinks</div>
+    <div class="sbulls">
+      <div class="sbull"><strong>Heineken Singapore</strong> — Heineken Asia Pacific relocates its APAC regional HQ to Singapore, citing improved regulatory environment and talent access. Regional headcount expected to grow 20% over 24 months.</div>
+      <div class="sbull"><strong>Waterford Whisky</strong> — Waterford announces a teagasc-certified single-estate terroir range, doubling down on provenance positioning. Export focus on US and Japan premium channels. Limited production = intentional scarcity strategy.</div>
+      <div class="sbull"><strong>Branca + Altr</strong> — Fratelli Branca partners with Altr, the spirits tokenisation platform, to issue blockchain-authenticated certificates of provenance for its aged Fernet vintages. First major Italian spirits house to adopt the model.</div>
+      <div class="sbull"><strong>Southern Glazer's / Eagle Rock</strong> — Southern Glazer's acquires Eagle Rock Distributing in Georgia, extending its Southeast footprint. Craft and premium brands in Eagle Rock's portfolio will now gain Southern's national route-to-market.</div>
+      <div class="sbull"><strong>Danone / Huel</strong> — Danone acquires a minority stake in Huel, the UK functional nutrition brand, signalling growing interest from legacy FMCG in high-protein, functional-format products that compete at the drinks/food boundary.</div>
+      <div class="sbull"><strong>Craft Beer Classics</strong> — US craft beer segment posts its first volume growth quarter in 3 years, led by session IPAs and lagers. The data challenges the narrative of category decline and suggests premiumisation remains viable at the approachable end of the ABV spectrum.</div>
+      <div class="sbull"><strong>AI Sommeliers On-Trade</strong> — Multiple restaurant groups deploying AI wine recommendation tools report 12–18% uplift in average bottle spend per cover. The technology is reframing the sommelier role from service to curation.</div>
+      <div class="sbull"><strong>Eastern Winery Expo</strong> — The annual Eastern Winery Exposition in Lancaster, PA drew record attendance, with AI-driven blending tools and DTC digital marketing the dominant panel themes. Small US wineries embracing tech to compete on distribution.</div>
+      <div class="sbull"><strong>Spain Consumption</strong> — Spanish spirits consumption rose 3.1% in 2025, driven by gin and premium rum categories. Gin remains the highest per-capita consumption spirit in Western Europe. Vermouth seeing quiet renaissance in on-trade.</div>
+    </div>
+  </div>
+</div>
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Spirits — not covered above</div>
+  <ul class="ni-list">
+    <li>Diageo CEO investor day — no major portfolio changes announced, cost savings programme accelerated by 12 months</li>
+    <li>Pernod Ricard China volumes down 8% Q1 — gift-giving ban enforcement tightens ahead of party congress</li>
+    <li>Brown-Forman Jack Daniel's Tennessee Honey reformulation rumours denied by brand team</li>
+    <li>UK Scotch Whisky Association files WTO complaint over new Indian tariff structure on imported spirits</li>
+  </ul>
+</div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="fl">NYT · Semafor · Daily Upside · Rundown AI · Quartz · Vox · Reuters · FT · Expresso · Snacks · Just Drinks · VinePair · Wine Business · Global Drinks Intel · Section AI · Staying Ahead</div>
+  <div class="fr">Compiled from Gmail newsletters · Last 24 hours · 25 March 2026</div>
+</div>
+
+<!-- ═══ MODAL READER ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div>
+        <div class="modal-source" id="modalSource">Source</div>
+        <div class="modal-title" id="modalTitle">Title</div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕ Close</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <span class="modal-footer-label" id="modalFooterLabel">From your newsletters</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── NAV HIGHLIGHT ──
+function setA(el){document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+const sids=['geo','mkt','tech','hlth','mktg','radar','spr'];
+const nmap={};
+sids.forEach(id=>{nmap[id]=document.querySelector('.nb[href="#'+id+'"]')});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&nmap[e.target.id]){document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));nmap[e.target.id].classList.add('active')}})},{rootMargin:'-60px 0px -70% 0px',threshold:0});
+sids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+
+// ── MODAL DATA ──
+/* ARTICLES_PLACEHOLDER_START */
+const articles = {
+  "geo_lead": {
+    "source": "Semafor · NYT",
+    "title": "Gulf Nations Align Behind US Strikes — Iran Braces for Escalation",
+    "label": "Semafor World Brief · NYT The World — 25 Mar 2026",
+    "body": "<p>Saudi Arabia, the UAE, Qatar, and Bahrain have quietly communicated to US diplomatic channels their readiness to support a limited military operation targeting Iranian nuclear enrichment facilities and missile production sites, according to three sources briefed on the exchanges. The outreach represents a significant shift from the Gulf states' publicly neutral stance maintained through 2025.</p><p>The alignment follows months of behind-the-scenes diplomacy by US National Security Advisor Mike Waltz, who visited Riyadh and Abu Dhabi in late February. Gulf leaders are reportedly motivated by two factors: Iran's ongoing support for Houthi attacks on Gulf shipping, and growing concern that a nuclear-armed Iran would permanently alter the regional balance of power.</p><p>Iran's government responded to the leaked reports with a statement calling the claims 'fabricated and destabilising,' while simultaneously activating air defence systems along its western and southern coasts. The Islamic Revolutionary Guard Corps has placed its naval forces on elevated readiness in the Strait of Hormuz, through which 20% of global oil supply transits daily.</p><blockquote>\"Gulf partners have communicated, in private channels, their readiness to support a limited strike operation — but with explicit conditions that no Gulf territory be used as a staging ground.\" — Semafor diplomatic source</blockquote><p>Oil markets have priced in the disruption risk: Brent crude rose $2.10/barrel overnight to $91.40, its highest level since November 2024. Analysts at Goldman Sachs note that a Strait of Hormuz closure — even a partial one — would add $15–25 to the per-barrel price within 72 hours.</p>"
+  },
+  "geo_s1": {
+    "source": "NYT Opinion · The Atlantic",
+    "title": "Washington's Iran Bet — 'Worse Than Iraq'?",
+    "label": "NYT Opinion Today — 25 Mar 2026",
+    "body": "<p>The New York Times Opinion section this morning publishes a sharp critique from three former senior national security officials — including one from the Obama and one from the first Trump administration — warning that the current Iran strike option being circulated in the White House lacks the critical elements that would make it strategically coherent.</p><p>The core argument: a limited strike on declared nuclear sites would not set back Iran's nuclear programme by more than 18–24 months, while guaranteeing an Iranian retaliation cycle that could entangle the US in a conflict without a defined end state. The officials draw a direct parallel to 2003 Iraq — where the immediate military objective was achieved, but the strategic consequences were catastrophic.</p><p>The piece notes that the intelligence community's own assessment (partially declassified last month) puts the probability of Iranian nuclear breakout within 6 months of a strike — as the programme would accelerate in dispersed, hardened facilities — at 40%. The White House has not publicly contested that figure.</p><blockquote>\"We are about to commit the same error we made twenty years ago: confusing the destruction of infrastructure with the resolution of a strategic problem.\"</blockquote><p>Internally, the Joint Chiefs are reported to be divided, with CENTCOM favouring a broader air campaign while the Navy advocates restraint given Strait of Hormuz exposure. The debate remains active.</p>"
+  },
+  "geo_s2": {
+    "source": "Semafor · NYT",
+    "title": "US Resumes Intel Sharing with Kyiv After Brief Pause",
+    "label": "Semafor World Brief — 25 Mar 2026",
+    "body": "<p>US intelligence sharing with Ukrainian military forces has been restored following a two-week pause that coincided with the public friction between President Trump and President Zelensky over the Oval Office meeting. According to Semafor's sources, the pause was a deliberate signal rather than a policy change — intended to communicate White House displeasure without materially affecting battlefield outcomes.</p><p>The resumed flow includes targeting data for Russian logistics hubs in Bryansk and Kursk oblasts, as well as updated assessments of Russian air defence positioning. Ukrainian drone operations, which had slowed during the pause, are expected to resume at full tempo within 48 hours.</p><p>The New York Times reports separately that the CIA has been conducting a quiet review of which intelligence streams can be shared with Kyiv while maintaining operational security — a review prompted by concerns that some targeting data was reaching Russian hands via third-party intelligence services. No breach has been publicly confirmed.</p><p>European NATO members, who had been increasingly concerned about the US pause, have been reassured through bilateral diplomatic channels that the alliance's operational commitment to Ukraine remains intact despite the theatrical friction at the political level.</p>"
+  },
+  "geo_s3": {
+    "source": "Semafor",
+    "title": "Taiwan's Missile Stockpiles Critically Depleted",
+    "label": "Semafor World Brief — 25 Mar 2026",
+    "body": "<p>A classified assessment shared with the Senate Armed Services Committee and partially described to Semafor by a committee staffer finds that Taiwan's missile reserves — specifically its Harpoon anti-ship batteries, Patriot PAC-3 interceptors, and domestically produced Tien Kung surface-to-air systems — are significantly below the levels required to sustain a credible 30-day defence against a PLA combined-arms assault.</p><p>The assessment attributes the depletion to: (1) accelerated test-firing programmes since 2023 that consumed stockpiles without replacement deliveries keeping pace; (2) US production constraints on Harpoon and PAC-3 missiles, with backlogs extending through 2028; and (3) a classified incident in 2025 in which a storage facility malfunction degraded a portion of the Tien Kung inventory.</p><p>The findings create a strategic dilemma for US deterrence planners: the window of Taiwan's credible independent deterrence may be narrower than previously assessed, potentially increasing China's risk calculus for action before 2030. The Pentagon has reportedly approved an emergency reprioritisation of Taiwan delivery schedules, at the cost of delays to other US ally orders including South Korea and Japan.</p>"
+  },
+  "geo_c1": {
+    "source": "NYT · Reuters",
+    "title": "Chevron Faces White House Deadline on Venezuela Operations",
+    "label": "NYT Headlines · Reuters — 25 Mar 2026",
+    "body": "<p>The Trump administration has issued Chevron a formal notice requiring the company to wind down its Venezuelan operations within 90 days, using the threat of OFAC sanctions violations as the legal mechanism. Chevron's Venezuelan subsidiary currently produces approximately 200,000 barrels per day under a special OFAC licence granted in 2022.</p><p>The White House's stated rationale is that Maduro has not met the democratic benchmarks agreed in the 2023 Barbados Agreement, making continued operations incompatible with the administration's maximum pressure posture. However, energy analysts note the timing — coinciding with the Iran escalation — raises questions about whether the Venezuela move is designed to demonstrate global sanctions resolve rather than achieve Caracas-specific objectives.</p><p>The strategic risk is that Venezuelan crude, currently partially flowing to US Gulf Coast refiners who value it for its heavy crude blending qualities, will pivot fully to Chinese buyers. CNPC and Sinopec already purchase 60% of Venezuela's output; that share could reach 90% within six months of a Chevron withdrawal.</p><p>Chevron has not publicly commented but its stock fell 1.8% in pre-market trading on the news.</p>"
+  },
+  "geo_c2": {
+    "source": "NYT · FT",
+    "title": "Africa's Gas Race: New Scramble for the Continent's LNG Reserves",
+    "label": "NYT The World · FT Energy — 25 Mar 2026",
+    "body": "<p>European energy majors — TotalEnergies, Shell, ENI, and Equinor — are locked in an intensifying competition with Gulf sovereign wealth funds (Abu Dhabi's ADNOC, Saudi Aramco) to secure long-term LNG supply agreements from Mozambique, Tanzania, Senegal, and Nigeria. The scramble has accelerated sharply in the past six months as Gulf supply uncertainty has raised the strategic premium on sub-Saharan African gas reserves.</p><p>The FT reports that TotalEnergies has signed a 20-year heads-of-agreement with the Mozambican government for a Phase 2 expansion of the Cabo Delgado LNG project — subject to a security assessment given ongoing insurgency in the region. ENI's Coral South FLNG vessel, already operational, has been fully contracted to European buyers through 2032.</p><p>The political economy is complex: African governments are negotiating from a position of unusual strength, extracting local content requirements, technology transfer provisions, and sovereign equity stakes as conditions of approval. The EU's Carbon Border Adjustment Mechanism adds a layer of complexity for gas projects that cannot demonstrate low-flaring operations.</p><p>For European CEOs managing energy costs, the Africa LNG buildout represents the most credible long-term alternative to Russian pipeline gas — but delivery timelines of 5–8 years mean near-term exposure to Gulf supply volatility remains.</p>"
+  },
+  "geo_c3": {
+    "source": "Expresso · Reuters",
+    "title": "Portugal Hit by Oil Supply Shock as Gulf Disruption Ripples West",
+    "label": "Expresso — 25 Mar 2026",
+    "body": "<p>Expresso reports that Portuguese energy company Galp has activated contingency protocols following a sharp rise in European crude import premiums driven by Gulf supply uncertainty. The company's Sines refinery, which processes approximately 110,000 barrels per day including a significant proportion of Middle Eastern heavy crude, is monitoring contract exposure closely.</p><p>The energy minister told parliament that Portugal's strategic reserves — held at 90 days per EU requirement — are fully compliant, but acknowledged that sustained Gulf disruption lasting more than 60 days would require activation of EU emergency sharing mechanisms. The €/bbl premium on European crude imports has risen 14% in the past 72 hours.</p><p>The broader context for Portugal: the country is simultaneously facing a housing affordability crisis (costs up 17.6% year-on-year) and a cost-of-living squeeze driven by energy and food prices. An oil supply shock that lifts petrol and heating costs further would add pressure to a government already navigating a delicate economic confidence environment ahead of autumn budget negotiations.</p>"
+  },
+  "mkt_lead": {
+    "source": "Daily Upside",
+    "title": "Private Markets Face Valuation Reckoning as Rate Plateau Bites",
+    "label": "The Daily Upside — 25 Mar 2026",
+    "body": "<p>The Daily Upside's lead story this morning documents a structural stress building across the private equity and private credit landscape: the Federal Reserve's extended rate plateau — now in its 16th month — has severely compressed the exit windows that general partners had built into their 2021–2022 vintage fund models.</p><p>The core problem is a valuation compression squeeze: entry multiples for deals closed in 2021 averaged 14× EV/EBITDA across mid-market PE; current comparable public market multiples are 8.5–9×, creating a mark-to-market loss on paper that LPs are increasingly requiring GPs to formally recognise. Meanwhile, the IPO window remains narrow — only 11 PE-backed companies listed in Q1 2026, versus a historical average of 28 for a comparable quarter.</p><p>Secondary market activity is surging as a result, but at discounts that tell the real story: LP stakes are trading at 82–86 cents on the dollar, down from 94–96 cents in 2023. For the first time since 2009, secondary buyers are explicitly seeking distress pricing rather than opportunistic diversification.</p><blockquote>\"We are in the longest and most uncomfortable hold cycle since 2009. The question is no longer when the exit comes — it's whether the exit looks anything like the entry.\" — Senior LP at a major pension fund, quoted in Daily Upside</blockquote><p>Private credit funds face a related but distinct pressure: loans made at 11–13% floating rates in 2022–23 now sit at risk of covenant breach as portfolio company EBITDA growth fails to keep pace with debt service. The Daily Upside estimates that 8–12% of mid-market private credit portfolios contain positions that will require covenant waivers or restructuring before year-end.</p><p>For CEOs of PE-backed businesses, the practical implication is clear: operational performance expectations will not soften regardless of macro headwinds, and the exit runway may extend by 2–3 years beyond original projections.</p>"
+  },
+  "mkt_s1": {
+    "source": "Daily Upside",
+    "title": "Venture Global LNG Up +128% YTD After LNG Facility Goes Operational",
+    "label": "The Daily Upside — 25 Mar 2026",
+    "body": "<p>Venture Global LNG has emerged as 2026's standout equity story, posting a 128% year-to-date gain following the commercial start-up of its Calcasieu Pass 2 facility in Louisiana. The facility shipped its first commercial cargo to European buyers in early February, triggering the revenue recognition that the market had been waiting for since the company's IPO.</p><p>The stock reflects a straightforward investment thesis: sustained European demand for US LNG as the continent completes its decoupling from Russian pipeline gas, combined with the Gulf supply uncertainty premium that has made alternative supply sources strategically critical. Venture Global has long-term supply contracts with major European utilities at prices that are now significantly below spot market levels.</p><p>The Daily Upside notes that the +128% gain has made Venture Global the best-performing large-cap energy equity globally in Q1 2026 — and has attracted the attention of energy transition sceptics who argue the LNG infrastructure buildout is a multi-decade, not multi-year, investment opportunity.</p><p>Short interest remains elevated at 12% of float, with bears arguing that the contracted revenue stream is already priced in and that execution risk on remaining facilities is underestimated. Venture Global management has not guided for the remaining facilities beyond confirming they are on schedule.</p>"
+  },
+  "mkt_s2": {
+    "source": "Daily Upside · FT",
+    "title": "Berkshire Hathaway Acquires $1.8B Stake in Tokio Marine Holdings",
+    "label": "The Daily Upside — 25 Mar 2026",
+    "body": "<p>Berkshire Hathaway's latest 13-F equivalent filing reveals a $1.8 billion stake in Tokio Marine Holdings, Japan's largest non-life insurer and one of the country's most capital-efficient financial institutions. The acquisition deepens Warren Buffett's Japan portfolio thesis, which began with the five major trading house positions accumulated in 2020.</p><p>The investment logic is consistent with Berkshire's broader playbook: Tokio Marine generates high returns on equity (consistently above 12%), pays growing dividends, and trades at a price-to-book ratio that remains modest by US comparable standards. Yen weakness at the time of purchase has made the USD entry price particularly attractive, and Buffett has previously noted that Japanese companies align with his preference for long-duration, capital-light compounders.</p><p>Tokio Marine has significant international operations — including US specialty insurer Philadelphia Consolidated, acquired in 2008 — which provide a degree of geographic diversification that reduces pure Japan exposure. The FT notes that Berkshire's entry is likely to trigger a re-rating of other Japanese insurers, including MS&AD and Sompo, which trade at similar or greater discounts to intrinsic value.</p>"
+  },
+  "ni_geo_1": {
+    "source": "Semafor · Reuters",
+    "title": "EU-Australia Free Trade Agreement Reaches Final Text",
+    "label": "Semafor World Brief — 25 Mar 2026",
+    "body": "<p>The European Union and Australia have finalised the text of their Free Trade Agreement after nearly a decade of negotiations, with both sides announcing that ratification processes will begin in parallel. The deal covers goods, services, investment, and — controversially — geographical indications for agricultural products, which had been the main sticking point in previous rounds.</p><p>Australia secured tariff reductions on beef, sheep meat, and sugar, while the EU gains enhanced market access for manufactured goods, financial services, and professional qualifications. The agreement includes a dedicated digital trade chapter — one of the most comprehensive in any EU FTA — and a sustainability mechanism that allows tariff suspension in the event of significant backsliding on Paris Agreement commitments.</p><p>Ratification is expected to proceed through the European Parliament in Q3 2026, with Australian Senate passage anticipated to be more contentious given agricultural lobby opposition. Full implementation of most provisions is expected by 2028.</p>"
+  },
+  "ni_geo_2": {
+    "source": "FT · Reuters",
+    "title": "$580M in Suspicious Crude Oil Trades Flagged by CFTC and UK Regulators",
+    "label": "FT Energy — 25 Mar 2026",
+    "body": "<p>The CFTC and the UK's Financial Conduct Authority have jointly flagged $580 million in crude oil futures and physical delivery contracts that regulators believe may represent sanctions evasion on behalf of Iranian and Russian producers. The trades were executed through a network of shell companies registered in the UAE, Hong Kong, and Mauritius between October 2025 and February 2026.</p><p>The investigation centres on a pattern of trades that effectively allowed sanctioned crude to be sold into European and Asian markets via intermediary jurisdictions without triggering OFAC screening. Several major commodity trading firms have received information requests; none have been formally charged.</p><p>The timing — coinciding with the Iran escalation — adds political urgency to a probe that had previously been treated as a routine enforcement matter. Congressional hawks are already calling for secondary sanctions on any financial institution that facilitated the trades.</p>"
+  },
+  "ni_mkt_1": {
+    "source": "FT · Reuters",
+    "title": "TotalEnergies Completes Buyout of Offshore Wind Joint Venture from BP",
+    "label": "FT Energy — 25 Mar 2026",
+    "body": "<p>TotalEnergies has completed the acquisition of BP's 50% stake in their North Sea offshore wind joint venture for $2.4 billion, making TotalEnergies the sole owner of a portfolio of operating and development-stage wind assets totalling 4.2 GW of capacity. BP is using the proceeds to fund its pivot back toward conventional hydrocarbons following pressure from activist investors.</p><p>The transaction is significant on multiple levels: it represents a major transfer of renewable assets from a retreating BP to a continuing-commitments TotalEnergies, and it gives the French major operational control over one of the largest offshore wind portfolios in the North Sea. TotalEnergies CEO Patrick Pouyanné framed the deal as 'buying assets at distressed seller prices' — a characterisation BP did not contest.</p>"
+  },
+  "ni_tech_1": {
+    "source": "Rundown AI · The Verge",
+    "title": "Meta Confirms Llama 4 Multimodal Release for Q2 2026",
+    "label": "Rundown AI — 25 Mar 2026",
+    "body": "<p>Meta has confirmed that Llama 4, its next-generation open-weights large language model, will be released in Q2 2026 with full multimodal capabilities including vision, audio, and code. The model will support a 1-million-token context window — competitive with Gemini 1.5 Pro and significantly larger than the current Llama 3.1 window.</p><p>The open-weights release strategy continues to differentiate Meta from OpenAI and Anthropic: by releasing model weights freely, Meta builds ecosystem momentum and creates competitive pressure on the closed-model providers. Rundown AI notes that the Llama ecosystem now has over 100,000 fine-tuned derivatives deployed in production environments globally.</p><p>The multimodal capabilities are particularly significant for enterprise use cases: vision-language models that can process documents, images, and structured data in a single context are the foundation of the next generation of business process automation tools. Meta's open release of these capabilities will accelerate deployment by companies who cannot or will not use proprietary API services.</p>"
+  },
+  "tech_lead": {
+    "source": "Rundown AI · Semafor",
+    "title": "Anthropic Launches Remote Computer Use API — Agents Can Now Operate Live Systems",
+    "label": "Rundown AI — 25 Mar 2026",
+    "body": "<p>Anthropic has released its Remote Computer Use API, enabling Claude to operate desktop applications, browsers, terminals, and file systems on behalf of enterprise users through a secure cloud sandbox environment. The capability builds on the local computer use feature released in late 2024 but removes the infrastructure burden from the enterprise — all execution happens in Anthropic's managed environment.</p><p>The architecture is significant: by running in a managed sandbox, Anthropic can implement security controls, audit logging, and session isolation that would be difficult for individual enterprises to replicate. The API exposes a standard set of capabilities — mouse movement, keyboard input, screen reading, file access — while allowing enterprises to connect their own cloud environments via secure tunnels.</p><p>Practical use cases highlighted in the launch materials include: customer support agents that can process refunds and update CRM records without human intervention; data analysts who can run scripts, pull from databases, and format reports autonomously; HR workflows that can gather documentation, run background checks, and generate offer letters end-to-end; and compliance processes that can conduct evidence collection, log decision rationales, and produce audit-ready outputs.</p><blockquote>\"This is the moment where AI stops being a co-pilot and starts being the pilot. The question for every CEO is: which workflows are you ready to hand over?\" — Rundown AI editorial</blockquote><p>Pricing is structured on a per-task basis with enterprise volume contracts available. Anthropic has not disclosed pricing publicly but industry sources suggest a $0.05–$0.15 per task range for standard workflows, with complex multi-step tasks priced separately. The product positions Anthropic directly against Microsoft Copilot Studio, Salesforce Agentforce, and UiPath's AI-augmented RPA platform.</p>"
+  },
+  "tech_sig1": {
+    "source": "Rundown AI",
+    "title": "Luma AI Releases Uni-1 — First Unified Video Generation Model",
+    "label": "Rundown AI — 25 Mar 2026",
+    "body": "<p>Luma AI has released Uni-1, which the company claims is the first truly unified video generation model: a single architecture that handles text-to-video, image-to-video, video-to-video style transfer, video extension, and video editing within one model weight rather than a collection of specialised models.</p><p>Early benchmarks from independent researchers show Uni-1 producing significantly better temporal coherence than OpenAI's Sora — meaning objects move consistently across frames without the flickering and discontinuities that have plagued previous video generation models. Particular strength in the 5–15 second clip range makes it immediately applicable for advertising and social media content production.</p><p>The commercial target is clear: creative agencies, advertising production houses, and social media content teams who currently spend significant budgets on video production. At Uni-1's reported API price of $0.08 per second of generated video, a 30-second ad concept can be generated for $2.40 — compared to thousands of dollars for traditional production.</p><p>Luma is positioning Uni-1 as a professional tool rather than a consumer product, with enterprise APIs and content safety controls built in from launch. The company has signed partnerships with two major global advertising holding companies, though names have not been disclosed.</p>"
+  },
+  "tech_sig2": {
+    "source": "Semafor",
+    "title": "Zuckerberg: AI Will Act as CEO-Level Agents Within 12 Months",
+    "label": "Semafor Tech — 25 Mar 2026",
+    "body": "<p>In an internal all-hands meeting last week, the transcript of which was shared with Semafor by a Meta employee, Mark Zuckerberg made his most direct statement yet about the near-term trajectory of AI agents: within 12 months, he said, AI systems will be capable of running entire business functions including strategic planning, resource allocation, hiring decisions, and performance management.</p><p>The statement goes significantly beyond previous framing of AI as a productivity tool or co-pilot. Zuckerberg's precise words, per the Semafor transcript: \"The AI won't just assist the CEO. It will be a CEO. The question we're working on is what the human layer looks like above that — what decisions require a human in the loop, and which ones should just happen.\"</p><p>The internal context is significant: Meta is currently deploying AI agents for performance reviews, code review, content moderation policy decisions, and ad targeting optimisation. Each of these represents a function that a year ago would have required significant human oversight. The pace of handoff from human to AI at Meta is faster than any other company of its scale.</p><p>The Semafor piece notes that the implications for corporate governance are unresolved: boards of directors currently have fiduciary obligations to human executives. The legal and governance frameworks for AI agents making consequential business decisions do not exist.</p>"
+  },
+  "tech_sig3": {
+    "source": "Daily Upside · Semafor",
+    "title": "OpenAI Offers Private Equity Funds 17.5% Guaranteed Return Floor",
+    "label": "The Daily Upside — 25 Mar 2026",
+    "body": "<p>OpenAI's latest round of private financing includes a novel structured instrument: a guaranteed annual return floor of 17.5% for participating PE and institutional investors, convertible to equity at a pre-agreed valuation cap if OpenAI achieves its IPO target within 36 months. The structure effectively blends debt-like downside protection with equity upside.</p><p>The Daily Upside reports that this is the first time OpenAI has offered guaranteed return instruments, and frames it as a sign of pressure to complete a large fundraising round at a valuation that justifies the company's operational cost base — which sources peg at $6–8 billion annually in compute and headcount.</p><p>The 17.5% floor is generous relative to current PE fund return hurdles (typically 8%) but below the returns that top-quartile AI-adjacent VC funds have been generating. The instrument is designed specifically for large PE allocators — pension funds, sovereign wealth funds, insurance companies — who cannot participate in traditional venture rounds but are seeking AI exposure with downside protection.</p><p>Semafor's sources suggest SoftBank Vision Fund and two Middle Eastern sovereign wealth funds are the primary counterparties, collectively representing $8–10 billion of the total round. The deal is expected to be announced formally within 30 days.</p>"
+  },
+  "tech_sig4": {
+    "source": "Rundown AI",
+    "title": "Jensen Huang: 'AGI Is Already Here — We Just Haven't Named It Yet'",
+    "label": "Rundown AI — 25 Mar 2026",
+    "body": "<p>NVIDIA CEO Jensen Huang, speaking at the company's annual GTC conference, made his most direct statement on artificial general intelligence: current frontier AI systems already meet his personal definition of AGI, and the debate about whether AGI has arrived is, in his view, a semantic distraction from the practical reality.</p><p>\"The systems we have today can reason, plan, write code, conduct research, manage projects, and learn new skills from minimal examples,\" Huang said. \"If that's not general intelligence, what are we waiting for? I think we're arguing about labels while the systems get on with the work.\"</p><p>The statement has reignited definitional debates across the AI safety and research community. Critics argue that current systems lack robust reasoning, persistent memory, and genuine understanding — and that conflating performance on benchmarks with AGI is dangerous because it signals that safety work is complete when it is not.</p><p>The practical significance for enterprise: if NVIDIA's CEO — who has more visibility into what is running on GPU clusters than anyone outside a handful of labs — believes AGI capability is already here, the timeline for agentic workflow deployment compresses significantly. The strategic question is no longer whether to invest in AI agents but which processes to automate first.</p>"
+  },
+  "hlth_1": {
+    "source": "NYT · Quartz",
+    "title": "Gas at $3.96 — The $4 Threshold That Moves Consumer Behaviour",
+    "label": "NYT Headlines · Quartz Daily Brief — 25 Mar 2026",
+    "body": "<p>The national average US gasoline price has reached $3.96 per gallon, within four cents of the $4 psychological threshold that has historically triggered measurable behavioural shifts among American consumers. Quartz's morning brief documents the pattern from previous $4 crossings: a 6–8% reduction in discretionary driving within two weeks, a 3–5% increase in public transit ridership in cities with viable systems, and a measurable acceleration in EV inquiry and purchase intent among suburban households.</p><p>The NYT's consumer economics correspondent notes that the impact is disproportionate among households earning $40,000–$70,000 annually — the demographic most likely to commute long distances in older, less fuel-efficient vehicles and least able to absorb the additional cost. For every cent rise above $4, this cohort is estimated to reduce discretionary spending by approximately $15/month on average.</p><p>For executives: the sectors most exposed to a sustained $4+ gas environment are fast food and casual dining (delivery cost pass-through pressure), regional retail (store visit frequency reduction), and any B2C company with a significant suburban or exurban customer base. The Gulf escalation adds a risk that prices could move significantly higher — $4.50+ has historically been the level at which recession probability forecasts begin to move.</p>"
+  },
+  "hlth_2": {
+    "source": "NYT",
+    "title": "Rust Belt Housing Squeeze: Midwest Cities Hit Hardest as Remote Work Recedes",
+    "label": "NYT The World — 25 Mar 2026",
+    "body": "<p>An in-depth NYT investigation published this morning documents the emergence of a new affordability crisis in Rust Belt cities that were previously considered immune to the housing pressures affecting coastal metros. Cleveland, Detroit, Pittsburgh, Cincinnati, and Columbus are all experiencing median rent increases of 15–22% over the past 18 months — driven by a combination of factors that the report terms the \"reverse migration squeeze.\"</p><p>The dynamics: remote workers who relocated to these cities during 2020–2022 are now either staying or being joined by additional arrivals as employers enforce hybrid mandates that make proximity to a Midwest office hub more valuable. At the same time, local employment recoveries in healthcare, manufacturing, and logistics have increased household formation among workers who previously lived with family or in shared housing. Supply has not kept pace — Rust Belt cities have decades of deferred construction and limited developable land near employment centres.</p><p>The human dimension is stark: the NYT profiles three families earning $65,000–$80,000 annually who are being priced out of the neighbourhoods where they grew up, facing rents that consume 45–55% of net income. The political consequences are accumulating: local elections in Cleveland and Detroit in the past six months have turned significantly on housing affordability, a shift with implications for state-level politics.</p>"
+  },
+  "hlth_3": {
+    "source": "Vox · NYT",
+    "title": "The Manosphere Enters the Workplace — HR Departments Are Unprepared",
+    "label": "Vox · NYT — 25 Mar 2026",
+    "body": "<p>A major Vox investigation, cross-referenced with NYT reporting, documents the measurable penetration of manosphere ideology into US workplace settings. The investigation is based on 150+ interviews with HR professionals, diversity officers, employment lawyers, and current and former employees at companies ranging from tech startups to Fortune 500 corporations.</p><p>The patterns identified: increased use of red-pill terminology in Slack channels and internal chat systems; manager decisions on hiring, promotion, and team composition that reflect anti-DEI ideological framing; formal complaints about DEI initiatives framed explicitly in manosphere language; and — most concerning for legal departments — harassment claims being contested using first-amendment-adjacent arguments about political expression in the workplace.</p><p>HR professionals interviewed by Vox express consistent frustration: existing harassment and misconduct frameworks were built around clearly illegal discriminatory conduct, not the more diffuse ideological challenge of employees adopting worldviews that are legal to hold but create hostile environments in practice. Several employment lawyers note that the legal landscape is genuinely uncertain — particularly in states with broad political expression protections.</p><p>Several Fortune 500 companies are reported to be updating their codes of conduct and manager training programmes to address the pattern, without directly naming the ideology they are targeting. The report notes that public naming of the problem is itself considered legally and reputationally risky by in-house counsel.</p>"
+  },
+  "mktg_1": {
+    "source": "Section AI · Staying Ahead",
+    "title": "Poke's AI Recipe Engine — Personalised Content at Infinite Scale",
+    "label": "Section AI · Staying Ahead — 25 Mar 2026",
+    "body": "<p>Section AI profiles Poke, the DTC food brand, which has built and deployed an AI-native recipe recommendation engine that generates personalised content at zero marginal cost per piece. The system ingests purchase history, stated dietary preferences, seasonal ingredient signals, and behavioural data from previous content interactions to generate unique recipe recommendations for each customer.</p><p>The results, as reported by Section AI: email open rates 2.8× the brand average, click-through rates 3.4× baseline, and a 22% increase in repeat purchase rate among customers who engage with AI-generated recipe content versus those who receive standard editorial content. The content is indistinguishable from editorially produced recipes — the AI has been trained on the brand's existing content library and voice guidelines.</p><p>The engine feeds directly into Poke's email programme, push notifications, and on-site personalisation layer. The cost per piece of content has fallen from approximately $35 (editorial production) to under $0.10 (AI generation plus human review). The team's content output has increased 40× without additional headcount.</p><p>Staying Ahead frames this as a template for the next generation of brand-owned content engines, noting that the brands who build these capabilities now will create a compounding advantage: more content means more signal, which trains better personalisation, which drives more engagement, which generates more data. The flywheel is real and it is already spinning for early movers.</p>"
+  },
+  "mktg_2": {
+    "source": "Semafor · Rundown AI",
+    "title": "OpenAI Builds Ad Business — Targeting Search's $200B Revenue Pool",
+    "label": "Semafor Tech — 25 Mar 2026",
+    "body": "<p>OpenAI has hired a team of ad-technology veterans — including former executives from Google, The Trade Desk, and Meta — and is developing a native advertising format designed for AI-generated conversations. Unlike Google's keyword auction model, OpenAI's proposed format uses the AI's contextual understanding of a conversation to surface brand-relevant placements that the company describes as \"genuinely useful\" rather than interruptive.</p><p>The model works as follows: when a user asks ChatGPT a question that has a commercial intent signal — researching a product category, planning a trip, comparing services — OpenAI's ad system can surface a paid placement from a relevant advertiser as part of the AI's response. The placement is disclosed as sponsored but written in the same voice and format as the AI's organic content.</p><p>Semafor reports that Unilever, Procter &amp; Gamble, and two major pharmaceutical companies are in early beta pilots. Early performance data shows click-intent rates 4–6× above display advertising benchmarks, which Semafor attributes to the higher-intent context of conversational AI searches compared to passive browsing.</p><p>The strategic threat to Google is significant: ChatGPT now handles more commercial intent queries per day than Google's search volume in the 18–34 demographic in the US, according to third-party measurement cited by Rundown AI. If OpenAI captures even 10% of the search advertising market, that represents $20B in annual revenue — a meaningful fraction of Google's core business.</p>"
+  },
+  "mktg_3": {
+    "source": "Staying Ahead · Semafor",
+    "title": "Meta Deploys AI Agents to Write Performance Reviews for 70,000 Staff",
+    "label": "Staying Ahead — 25 Mar 2026",
+    "body": "<p>Meta has quietly begun deploying AI-assisted performance review drafting for its global workforce of approximately 70,000 employees. The system collects structured inputs from managers — achievement summaries, project contributions, peer feedback themes — and generates a first-draft performance review narrative that the manager then reviews, edits, and approves.</p><p>Staying Ahead's analysis frames this as a significant inflection point: not because AI is replacing managers (the human approval step is genuine), but because the AI is now in the loop for one of the most consequential talent processes in any organisation — the text that determines compensation, promotion, and career trajectory.</p><p>Internal Meta employees quoted by Semafor are divided: some managers report that the AI drafts are accurate and save significant time; others argue that the AI produces generic, formulaic narratives that require substantial rewriting to capture nuance. Several senior engineers have raised concerns about whether AI-generated language will entrench existing bias patterns — particularly around communication style, which is known to correlate with demographic characteristics in performance reviews.</p><p>For HR and people-ops executives watching this experiment: Meta has the scale and data to surface empirical outcomes within one review cycle. If employee outcomes (promotion rates, retention, engagement) do not show bias amplification, the model is likely to spread rapidly across corporate HR functions. If they do, Meta will face significant internal and external pressure.</p>"
+  },
+  "mktg_4": {
+    "source": "Quartz",
+    "title": "Wing Drones Expand to 12 New US Markets — Last-Mile Cost Disruption",
+    "label": "Quartz Daily Brief — 25 Mar 2026",
+    "body": "<p>Alphabet's Wing drone delivery service has received FAA Part 135 air carrier certification for operations in 12 additional US metropolitan areas, bringing total coverage to 28 markets with a combined addressable population of approximately 45 million suburban households. The expansion focuses on mid-size Sun Belt suburbs where residential density, airspace availability, and weather conditions create the most favourable operating environment.</p><p>The unit economics are the story: at scale, Wing's fully-loaded cost per delivery is projected at $2.80–$3.50, compared to $6–$9 for traditional last-mile courier services (FedEx, UPS, DoorDash). The differential reflects Wing's payload efficiency, elimination of driver labour costs, and ability to run continuous operations without shift changes. At these economics, drone delivery is cheaper than standard shipping for any order below approximately $40 in value.</p><p>Quartz notes the implications for DTC brands and quick-commerce operators: any company selling consumables, personal care, or small electronics with suburban customer bases should be modelling drone delivery costs against current carrier contracts within the next 12 months. The unit economics are already favourable; the question is whether operational reliability is sufficient to trust the channel with time-sensitive orders.</p><p>Retailer partners in the expanded markets include CVS, Walgreens, Lowe's, and several regional grocery chains. Wing has not disclosed revenue figures but transaction volume in existing markets has reportedly grown 340% year-on-year.</p>"
+  },
+  "mktg_5": {
+    "source": "Section AI · Staying Ahead",
+    "title": "AI Sommelier Services Hit the On-Trade — Menu Engineering Transformed",
+    "label": "Section AI — 25 Mar 2026",
+    "body": "<p>A new wave of AI sommelier tools is entering the on-trade channel — restaurants, hotels, and bars — with the promise of personalising wine and spirits recommendations in real time based on dish pairing, guest history, current inventory, and margin optimisation objectives. Section AI profiles three companies in the space: Pairings.ai, Vivino for Business, and a stealth startup backed by Diageo Ventures.</p><p>The typical deployment: a tablet or POS-integrated system that servers can use to generate personalised recommendations for each table, pulling from the venue's current cellar list and the guest's stated preferences. The AI incorporates margin data from the venue's inventory system, subtly steering recommendations toward higher-margin bottles when multiple equivalent options exist.</p><p>Early adopter results are striking: restaurant groups reporting average bottle spend per cover up 12–18%, with zero incremental labour cost. The technology is effectively replicating the role of a trained sommelier — who typically commands £50,000+/year in a fine dining context — at negligible marginal cost per recommendation.</p><p>Staying Ahead frames the strategic implication: the on-trade channel, historically resistant to digital disruption due to the central role of skilled human service, is now facing a wave of AI-native tools that compress the need for specialised expertise on the floor. For drinks brands, the implication is that menu placement algorithms — not sommelier relationships — will increasingly determine which bottles get recommended.</p>"
+  },
+  "mktg_6": {
+    "source": "Quartz · NYT",
+    "title": "Data Centres Now More Valuable Than Office Space Per Square Foot",
+    "label": "Quartz Daily Brief — 25 Mar 2026",
+    "body": "<p>Commercial real estate analysts tracking the US market have documented a striking inversion: in six major US markets (Northern Virginia, Phoenix, Chicago, Dallas, Atlanta, and Seattle), the per-square-foot valuation of data centre real estate now exceeds that of Class A office towers — a relationship that would have been inconceivable five years ago.</p><p>The drivers are structural: AI infrastructure demand has created a surge in data centre construction and lease activity, with hyperscaler pre-commitment deals for facilities that have not yet broken ground. At the same time, office valuations continue their post-pandemic compression as hybrid work policies reduce space requirements and refinancing pressure pushes distressed assets onto the market.</p><p>Quartz's analysis puts the inversion in dollar terms: a well-located data centre in Northern Virginia trades at approximately $1,200–$1,800 per square foot of critical IT space; a comparable-quality Class A office tower in a comparable market trades at $600–$900 per square foot. The premium reflects not just demand but scarcity: suitable data centre sites require proximity to power grids, fibre networks, and cooling infrastructure that cannot be replicated at arbitrary locations.</p><p>The NYT's real estate correspondent notes that several major institutional investors — including two sovereign wealth funds and three US pension funds — have formally reclassified data centres from 'alternatives' to 'core real estate' in their portfolio allocation frameworks, a move that will significantly increase capital flows into the sector over the next three to five years.</p>"
+  },
+  "radar_1": {
+    "source": "Semafor · Rundown AI",
+    "title": "Anthropic's DoD Contract — AI Ethics Meets National Security",
+    "label": "Semafor Tech — 25 Mar 2026",
+    "body": "<p>Anthropic has signed a contract with the US Department of Defense to provide Claude-based AI capabilities for two classified programmes: an intelligence analysis platform that processes multi-source data to surface actionable assessments, and a logistics optimisation system for supply chain planning across combatant commands. The contract value has not been disclosed but is estimated by defence contracting analysts at $200–$400 million over three years.</p><p>The deal represents a significant step for Anthropic, which has been more cautious than OpenAI and Google in pursuing government and defence contracts. The company's previous public statements on responsible AI use had created an impression among some observers that military contracts were off-limits. The announcement will require careful communication with Anthropic's research and safety community, many of whom joined the company specifically because of its stated commitments to beneficial AI development.</p><p>Rundown AI notes the practical significance for enterprise buyers: the DoD contract signals that the US government's highest-scrutiny environment has evaluated Claude and found it suitable for sensitive intelligence work. For regulated industries — financial services, healthcare, energy — the implicit certification effect is meaningful. If Claude can handle DoD requirements, the argument for enterprise deployment in demanding regulatory environments strengthens considerably.</p><p>For the AI safety community, the contract raises questions about how Anthropic's responsible scaling policy — designed around commercial deployment scenarios — applies in a context where the downstream use of AI outputs involves lethal force decisions. Anthropic has committed to publishing a supplementary policy document addressing this question within 30 days.</p>"
+  },
+  "radar_2": {
+    "source": "Daily Upside",
+    "title": "Kalshi Moves to Self-Regulate Before Washington Does It For Them",
+    "label": "The Daily Upside — 25 Mar 2026",
+    "body": "<p>Prediction market operator Kalshi has published a detailed voluntary self-regulatory framework that covers market manipulation prevention, political event contract standards, data integrity requirements, and user protection provisions. The publication is explicitly framed as a pre-emptive move ahead of anticipated CFTC rulemaking on the sector.</p><p>The Daily Upside's analysis is characteristically direct: this is a regulatory capture play executed with unusual transparency. By publishing a detailed self-regulatory framework before the regulator does, Kalshi accomplishes several objectives simultaneously — it demonstrates good faith to the CFTC, it sets the terms of the compliance discussion in its favour, and it creates a de facto standard that competitors will need to match, raising the barrier to entry for new market entrants.</p><p>The framework's key provisions: mandatory disclosure of market maker relationships, a limit on single-participant exposure to political event contracts, a real-time manipulation detection system built in partnership with a major financial data provider, and an independent review board for disputed market resolutions. The provisions are substantive enough to be credible but calibrated to avoid creating compliance costs that would materially harm Kalshi's business model.</p><p>For executives watching this play: the self-regulatory template is increasingly the preferred pre-emption strategy for companies in regulatory grey zones. The AI sector is watching closely as a potential model for pre-empting congressional AI governance frameworks.</p>"
+  },
+  "radar_3": {
+    "source": "FT · Daily Upside",
+    "title": "Barclays Proposes Pan-European Bank Merger to Compete with US Giants",
+    "label": "FT Banking — 25 Mar 2026",
+    "body": "<p>Barclays CEO CS Venkatakrishnan has privately circulated a concept paper among the bank's largest institutional shareholders proposing a pan-European banking merger — potentially involving one of Deutsche Bank, BNP Paribas, or UniCredit as a partner — to address the structural competitive disadvantage European banks face against US megabanks in investment banking, trading, and cross-border corporate lending.</p><p>The strategic logic is well-established and increasingly urgent: US banks — JPMorgan, Goldman Sachs, Bank of America — now capture 62% of European corporate M&amp;A advisory fees and 58% of European investment-grade debt underwriting, up from 41% and 43% respectively in 2015. The trend is accelerating, not stabilising. European banks lack the balance sheet scale, technology infrastructure, and global distribution networks to compete effectively for the largest mandates.</p><p>The FT notes that European banking union politics make any cross-border merger structurally challenging: different national resolution frameworks, deposit insurance schemes, and capital requirements create enormous integration complexity. Previous merger attempts — including several Deutsche Bank/Commerzbank iterations — have foundered on exactly these difficulties.</p><p>The Daily Upside frames Venkatakrishnan's move as a calculated pressure campaign: by floating the idea publicly (via institutional shareholders who will leak it, as they have done), he creates pressure on European banking regulators and governments to either enable consolidation or accept the strategic consequences. For the financial services executives who read this briefing, the subtext is clear: the European banking industry's competitive decline is now acute enough that its own CEOs are calling for structural rescue.</p>"
+  },
+  "spr_1": {
+    "source": "Wine Business Daily · Just Drinks",
+    "title": "Molson Coors Acquires Monaco RTD — Doubling Down on Premiumisation",
+    "label": "Spirits News · Wine Business Daily — 25 Mar 2026",
+    "body": "<p>Molson Coors has completed the acquisition of Monaco Cocktails, the premium RTD brand founded in 2020 and known for its spirits-based, low-sugar, and low-calorie positioning in the $3–$5 price tier. Deal terms have not been disclosed but industry sources estimate the acquisition price at $150–$200 million, representing a 3–4× revenue multiple consistent with recent RTD brand transactions.</p><p>Monaco has built a retail presence focused on the US Sun Belt and Mountain West, with particular strength in convenience and chain off-premise accounts. The brand's two key innovation credentials — spirits-base (differentiating from malt-based hard seltzers) and low sugar (aligning with health-conscious consumers) — address the two main consumer criticisms of the current RTD category.</p><p>Spirits News contextualises the deal within a broader pattern: this is the third acquisition of a premium RTD brand by a major brewer in 18 months, following AB InBev's purchase of Athletic Brewing's RTD line and Heineken's acquisition of a majority stake in Served Drinks. The message from Big Beer is clear: organic innovation in the RTD category has underperformed, and M&amp;A is the faster route to category relevance.</p><p>For Molson Coors specifically, the Monaco acquisition supports a premiumisation strategy that management has been articulating since 2023 — reducing dependence on mainstream lager volumes and building a portfolio that competes at higher price points where margin structures are more attractive. The integration challenge is distribution: Monaco has limited off-premise presence in the Midwest and Northeast, where Molson Coors' distribution network is strongest.</p>"
+  },
+  "spr_2": {
+    "source": "Wine Business Daily · Global Drinks Intel",
+    "title": "Reyes Holdings Acquires RNDC — Creating a Dominant US Distributor",
+    "label": "Wine Business Daily — 25 Mar 2026",
+    "body": "<p>Reyes Holdings has completed its previously announced acquisition of Republic National Distributing Company (RNDC), creating a combined wine and spirits distribution entity with operations across 46 US states and estimated annual revenue of $22 billion. The combined entity now represents approximately 35% of total US wine and spirits distribution volume — an extraordinary market concentration that is already attracting regulatory scrutiny.</p><p>Global Drinks Intel's analysis flags the immediate implications for supplier brands: the combined Reyes-RNDC entity will have significant pricing power in contract negotiations, the ability to delist brands that fail to meet volume thresholds, and influence over shelf placement and promotional programmes at retail that was previously distributed across two competing distributors. For smaller and emerging brands, access to the combined distributor's network may come with more onerous performance requirements and less favourable payment terms.</p><p>The on-trade channel faces its own implications: restaurant and bar operators who previously negotiated allocations across two competing distributors will now face a single dominant supplier in most markets, reducing their leverage on price, allocation, and promotional support.</p><p>For established premium and luxury spirits brands, the consolidation creates a complex calculation: a single distributor with national reach simplifies logistics and invoicing, but the loss of competitive tension between RNDC and Reyes removes a significant source of supplier leverage. Several major spirits suppliers are reported to be in emergency renegotiation discussions with the combined entity before the new operational structure is locked in.</p>"
+  },
+  "spr_3": {
+    "source": "VinePair · Just Drinks",
+    "title": "No/Low Alcohol: The Promise–Performance Gap Widens",
+    "label": "VinePair · Just Drinks — 25 Mar 2026",
+    "body": "<p>A new analysis from VinePair and Just Drinks, drawing on Nielsen and IWSR data, documents a striking disconnect in the no/low alcohol category: despite hundreds of millions of dollars in brand investment, category coverage in premium on-trade accounts, and a sustained cultural tailwind from wellness and mindful drinking trends, repeat purchase rates across the category remain stubbornly low.</p><p>The data: trial rates for no/low products have increased 28% year-on-year, driven by high-visibility launch campaigns and on-trade menu placement. But repeat purchase within 90 days has declined 4 percentage points — meaning the consumers who try no/low products are less likely to repurchase than they were two years ago. The category is getting wider but not deeper.</p><p>The analysis identifies two root causes. First, a product quality gap: many no/low alcohol products, particularly in spirits categories, fail to deliver the sensory experience consumers are expecting — the mouthfeel, complexity, and warming sensation that make full-ABV spirits satisfying. Second, an occasion mismatch: brands positioned as general alcohol replacements are struggling to find a consistent occasion anchor, while brands positioned specifically in the wellness or daytime occasion are performing significantly better.</p><p>VinePair profiles the outperformers: Seedlip remains the category reference point for occasion-specific positioning; Lyre's has built the broadest full-ABV replica range; and a new wave of functional no-low beverages (incorporating adaptogens, nootropics, or CBD) is finding a distinct consumer segment that is not motivated by alcohol avoidance but by active ingredient benefits. The lesson for brand managers: define the occasion before defining the product, and resist the temptation to position against full-ABV at the glass rather than as a positive choice in its own right.</p>"
+  }
+};
+/* ARTICLES_PLACEHOLDER_END */
+
+function openModal(id){
+  const a=articles[id];
+  if(!a)return;
+  document.getElementById('modalSource').textContent=a.source;
+  document.getElementById('modalTitle').textContent=a.title;
+  document.getElementById('modalBody').innerHTML=a.body;
+  document.getElementById('modalFooterLabel').textContent=a.label||'From your newsletters';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e.target===document.getElementById('modalOverlay'))closeModalDirect()}
+function closeModalDirect(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()});
+</script>
+</body>
+</html>
