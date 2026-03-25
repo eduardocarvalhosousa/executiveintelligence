@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Intelligence — {{BRIEFING_DAY_DATE}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#f5f0e8;--accent:#c8382a;--gold:#b8860b;--mid:#5a5a5a;--rule:#c8b89a;--link:#1a3a6e;--spirits:#4a1f6e;--mktg:#0d5c4e;--nav-h:56px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300}
+
+/* NAV */
+.topic-nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:2px solid var(--accent);height:var(--nav-h);display:flex;align-items:center;padding:0 48px;gap:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.topic-nav::-webkit-scrollbar{display:none}
+.nav-brand{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--paper);white-space:nowrap;margin-right:24px;flex-shrink:0}
+.nav-div{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px;flex-shrink:0}
+.nb{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;transition:background .15s,color .15s;cursor:pointer;border:none;background:transparent}
+.nb:hover,.nb.active{background:var(--accent);color:#fff}
+.nb.sp:hover,.nb.sp.active{background:var(--spirits);color:#fff}
+.nb.mk:hover,.nb.mk.active{background:var(--mktg);color:#fff}
+
+/* MASTHEAD */
+.masthead{border-bottom:3px double var(--ink);padding:28px 48px 20px;display:flex;justify-content:space-between;align-items:flex-end}
+.me{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+.mt{font-family:'Playfair Display',serif;font-weight:900;font-size:42px;line-height:1;letter-spacing:-1px}
+.mr{text-align:right}
+.md{font-family:'Playfair Display',serif;font-size:13px;color:var(--mid);line-height:1.6}
+.mned{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-top:4px}
+
+/* TICKER */
+.alert-bar{background:var(--ink);color:var(--paper);padding:8px 48px;display:flex;align-items:center;gap:16px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;overflow:hidden}
+.al{background:var(--accent);color:#fff;padding:2px 8px;font-size:9px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.as{white-space:nowrap;animation:scl 65s linear infinite;opacity:.85}
+@keyframes scl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* GLOBAL KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--ink);margin-bottom:40px;background:#fff}
+.kpi{padding:16px 18px;border-right:1px solid var(--ink);text-align:center}
+.kpi:last-child{border-right:none}
+.kn{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;display:block;line-height:1;margin-bottom:3px}
+.kn.red{color:var(--accent)}
+.kn.grn{color:#1a7a40}
+.kn.amb{color:var(--gold)}
+.kl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);line-height:1.35}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:40px 48px 80px}
+.sa{display:block;position:relative;top:calc(-1 * var(--nav-h) - 16px);visibility:hidden}
+.sh{display:flex;align-items:center;gap:16px;margin-bottom:24px;margin-top:48px}
+.sh:first-child{margin-top:0}
+.st{background:var(--ink);color:var(--paper);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;white-space:nowrap}
+.st.sp{background:var(--spirits)}
+.st.mk{background:var(--mktg)}
+.sr{flex:1;height:1px;background:var(--rule)}
+
+/* STORY ELEMENTS */
+.sk{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:block}
+.sh2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.sh2.lg{font-size:30px}
+.sh2.sm{font-size:16px;margin-bottom:6px}
+.sb{font-size:14px;line-height:1.8;color:#222}
+.sb p+p{margin-top:10px}
+.sb.sm{font-size:13px;color:#333}
+.pq{border-left:3px solid var(--accent);padding:8px 16px;margin:16px 0;font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--ink);line-height:1.5}
+
+/* SOURCE + READ ROW */
+.smeta{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px}
+.badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border:1px solid currentColor;border-radius:2px;white-space:nowrap}
+.s-nyt{color:#111;border-color:#111;background:#fff}
+.s-sem{color:#d48a00;border-color:#d48a00;background:rgba(212,138,0,.08)}
+.s-up{color:#1a55c0;border-color:#1a55c0;background:rgba(26,85,192,.07)}
+.s-run{color:#7c3aed;border-color:#7c3aed;background:rgba(124,58,237,.07)}
+.s-reu{color:#e07000;border-color:#e07000;background:rgba(224,112,0,.07)}
+.s-exp{color:#005f3e;border-color:#005f3e;background:rgba(0,95,62,.07)}
+.s-ft{color:#c8460e;border-color:#c8460e;background:rgba(200,70,14,.07)}
+.s-qz{color:#c0392b;border-color:#c0392b;background:rgba(192,57,43,.07)}
+.s-vox{color:#c9a900;border-color:#c9a900;background:rgba(201,169,0,.07)}
+.s-vp{color:#8B0000;border-color:#8B0000;background:rgba(139,0,0,.07)}
+.s-jd{color:#2e7d32;border-color:#2e7d32;background:rgba(46,125,50,.07)}
+.s-wb{color:#004f76;border-color:#004f76;background:rgba(0,79,118,.07)}
+.s-gdi{color:#5c4033;border-color:#5c4033;background:rgba(92,64,51,.07)}
+.s-rh{color:#00c805;border-color:#00c805;background:rgba(0,200,5,.07)}
+.s-sec{color:#0d5c4e;border-color:#0d5c4e;background:rgba(13,92,78,.07)}
+.s-vai{color:#e91e8c;border-color:#e91e8c;background:rgba(233,30,140,.07)}
+
+/* READ BUTTON — opens modal */
+.rb{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--link);text-decoration:none;padding:3px 9px;border:1px solid var(--link);border-radius:2px;transition:background .15s,color .15s;white-space:nowrap;cursor:pointer;background:transparent}
+.rb:hover{background:var(--link);color:#fff}
+.rb::after{content:" →"}
+
+/* GRID LAYOUTS */
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);margin-bottom:40px}
+.lm{padding:32px;border-right:1px solid var(--ink)}
+.ls{padding:0;display:flex;flex-direction:column}
+.si{padding:22px 28px;flex:1}
+.si+.si{border-top:1px solid var(--rule)}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-bottom:40px}
+.two-col{display:grid;grid-template-columns:2fr 1fr;border:1px solid var(--ink);margin-bottom:40px}
+.col{padding:28px;border-right:1px solid var(--ink)}
+.col:last-child{border-right:none}
+.col .sh2{font-size:17px;margin-bottom:8px}
+.col .sb{font-size:13px;line-height:1.75}
+.two-col .col .sh2{font-size:20px}
+
+/* SIGNAL ITEMS */
+.sgi{padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--rule)}
+.sgi:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sgt{font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;margin-bottom:4px}
+.sgb{font-size:12px;line-height:1.6;color:#444;margin-bottom:8px}
+
+/* TAGS */
+.tag{display:inline-block;background:var(--rule);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:2px 7px;color:var(--ink);margin-bottom:8px}
+.tag.red{background:var(--accent);color:#fff}
+.tag.gold{background:var(--gold);color:#fff}
+.tag.spt{background:var(--spirits);color:#fff}
+.tag.mkt{background:var(--mktg);color:#fff}
+
+/* SPIRITS */
+.spirits-wrap{border:2px solid var(--spirits);margin-bottom:40px}
+.spirits-hdr{background:var(--spirits);color:#fff;padding:16px 28px}
+.spirits-hdr-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.spirits-hdr-s{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.75;margin-top:3px}
+.spirits-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.scol{padding:24px 28px;border-right:1px solid rgba(74,31,110,.2)}
+.scol:last-child{border-right:none}
+.scol .sk{color:var(--spirits)}
+.scol .sh2{font-size:16px;margin-bottom:8px}
+.scol .sb{font-size:13px;line-height:1.7}
+.spirits-strip{border-top:1px solid rgba(74,31,110,.2);padding:20px 28px;background:rgba(74,31,110,.03)}
+.spirits-strip-t{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--spirits);margin-bottom:12px}
+.sbulls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 24px}
+.sbull{font-size:12px;line-height:1.5;color:#333;padding-left:12px;border-left:2px solid var(--spirits)}
+
+/* MARKETING SECTION */
+.mktg-wrap{border:2px solid var(--mktg);margin-bottom:40px}
+.mktg-hdr{background:var(--mktg);color:#fff;padding:16px 28px}
+.mktg-hdr-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.mktg-hdr-s{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.75;margin-top:3px}
+.mktg-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.mcol{padding:24px 28px;border-right:1px solid rgba(13,92,78,.2)}
+.mcol:last-child{border-right:none}
+.mcol .sk{color:var(--mktg)}
+.mcol .sh2{font-size:16px;margin-bottom:8px}
+.mcol .sb{font-size:13px;line-height:1.7}
+
+/* NOT INCLUDED LIST */
+.ni-strip{border:1px solid var(--rule);background:rgba(200,184,154,.1);padding:20px 28px;margin-bottom:10px}
+.ni-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
+.ni-list{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none}
+.ni-list li{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);padding-left:10px;border-left:2px solid var(--rule);line-height:1.4}
+.ni-btn{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--link);padding:2px 6px;border:1px solid var(--link);border-radius:2px;background:transparent;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .12s,color .12s}
+.ni-btn:hover{background:var(--link);color:#fff}
+.ni-btn::after{content:" →"}
+
+/* FOOTER */
+.footer{border-top:3px double var(--ink);padding:20px 48px;display:flex;justify-content:space-between;align-items:center}
+.fl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+.fr{font-family:'Playfair Display',serif;font-size:12px;color:var(--mid);font-style:italic}
+
+/* ── MODAL READER ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,.7);z-index:1000;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--paper);max-width:780px;width:100%;max-height:90vh;border:2px solid var(--ink);display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.modal-header{background:var(--ink);color:var(--paper);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-source{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.7}
+.modal-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-top:4px;line-height:1.3}
+.modal-close{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);background:transparent;border:1px solid rgba(255,255,255,.3);padding:6px 12px;cursor:pointer;flex-shrink:0;margin-left:16px;transition:background .15s,color .15s}
+.modal-close:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.modal-body{overflow-y:auto;padding:28px 32px;flex:1}
+.modal-body p{font-size:14px;line-height:1.85;color:#222;margin-bottom:14px}
+.modal-body p:last-child{margin-bottom:0}
+.modal-body h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin:20px 0 8px;color:var(--ink)}
+.modal-body blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:16px 0;font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#444}
+.modal-body ul{margin:8px 0 14px 20px}
+.modal-body li{font-size:13px;line-height:1.7;color:#333;margin-bottom:4px}
+.modal-footer{padding:14px 24px;border-top:1px solid var(--rule);background:rgba(200,184,154,.15);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.modal-footer-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.page>*{animation:fadeUp .5s ease both}
+.page>*:nth-child(1){animation-delay:.05s}.page>*:nth-child(2){animation-delay:.1s}
+.page>*:nth-child(3){animation-delay:.15s}.page>*:nth-child(4){animation-delay:.2s}
+.page>*:nth-child(5){animation-delay:.25s}.page>*:nth-child(6){animation-delay:.3s}
+.page>*:nth-child(7){animation-delay:.35s}.page>*:nth-child(8){animation-delay:.4s}
+.page>*:nth-child(9){animation-delay:.45s}.page>*:nth-child(10){animation-delay:.5s}
+
+@media(max-width:768px){
+  .topic-nav{padding:0 12px}.masthead{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}.mt{font-size:30px}
+  .page{padding:20px 16px 60px}
+  .lead-grid,.three-col,.two-col,.kpi-strip,.spirits-grid,.sbulls,.mktg-grid{grid-template-columns:1fr}
+  .lm,.col,.si,.scol,.mcol{border-right:none;border-bottom:1px solid var(--ink)}
+  .col:last-child,.scol:last-child,.mcol:last-child{border-bottom:none}
+  .kpi{border-right:none;border-bottom:1px solid var(--ink)}.kpi:last-child{border-bottom:none}
+  .alert-bar,.footer{padding:8px 16px}
+  .footer{flex-direction:column;gap:6px;align-items:flex-start}
+  .modal{max-height:95vh;margin:0}
+  .ni-list li{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div>
+    <div class="me">Eduardo Sousa — Private Briefing</div>
+    <div class="mt">Executive<br>Intelligence</div>
+  </div>
+  <div class="mr">
+    <div class="md">{{BRIEFING_DAY_DATE}}<br>{{BRIEFING_EDITION_TIME}}</div>
+    <div class="mned">All newsletters · {{BRIEFING_DATE_RANGE}}</div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="alert-bar">
+  <span class="al">⚡ Live</span>
+  <span class="as">{{TICKER_TEXT}}</span>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="topic-nav">
+  <span class="nav-brand">EI ·</span>
+  <div class="nav-div"></div>
+  <a class="nb active" href="#geo" onclick="setA(this)">🌍 Geopolitics</a>
+  <a class="nb" href="#mkt" onclick="setA(this)">📊 Markets</a>
+  <a class="nb" href="#tech" onclick="setA(this)">🤖 Technology</a>
+  <a class="nb" href="#hlth" onclick="setA(this)">💊 Health</a>
+  <a class="nb mk" href="#mktg" onclick="setA(this)">📣 Marketing</a>
+  <a class="nb" href="#radar" onclick="setA(this)">📡 CEO Radar</a>
+  <a class="nb sp" href="#spr" onclick="setA(this)">🍷 Spirits</a>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+<!-- ═══ GLOBAL KPI STRIP ═══ -->
+<div class="kpi-strip">
+{{KPI_STRIP_ITEMS}}
+</div>
+
+<!-- ═══ I. GEOPOLITICS ═══ -->
+<span class="sa" id="geo"></span>
+<div class="sh"><span class="st">I. Geopolitics &amp; Energy</span><div class="sr"></div></div>
+
+{{SECTION_GEO_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Geopolitics — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_GEO_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ II. MARKETS & FINANCE ═══ -->
+<span class="sa" id="mkt"></span>
+<div class="sh"><span class="st">II. Markets &amp; Finance</span><div class="sr"></div></div>
+
+{{SECTION_MKT_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Markets — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_MKT_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ III. TECHNOLOGY & AI ═══ -->
+<span class="sa" id="tech"></span>
+<div class="sh"><span class="st">III. Technology &amp; Artificial Intelligence</span><div class="sr"></div></div>
+
+{{SECTION_TECH_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Technology — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_TECH_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ IV. HEALTH & SOCIETY ═══ -->
+<span class="sa" id="hlth"></span>
+<div class="sh"><span class="st">IV. Health, Society &amp; Culture</span><div class="sr"></div></div>
+
+{{SECTION_HLTH_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Health, Society — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_HLTH_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ V. MARKETING, DIGITAL & GO-TO-MARKET ═══ -->
+<span class="sa" id="mktg"></span>
+<div class="sh"><span class="st  mk">V. Marketing, Digital &amp; Go-to-Market</span><div class="sr"></div></div>
+
+{{SECTION_MKTG_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Marketing &amp; Digital — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_MKTG_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ VI. CEO RADAR ═══ -->
+<span class="sa" id="radar"></span>
+<div class="sh"><span class="st">VI. CEO Radar — Watch List</span><div class="sr"></div></div>
+
+{{SECTION_RADAR_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in CEO Radar — Watch List — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_RADAR_NOT_COVERED}}
+  </ul>
+</div>
+
+<!-- ═══ VII. SPIRITS & DRINKS ═══ -->
+<span class="sa" id="spr"></span>
+<div class="sh"><span class="st sp">VII. Spirits &amp; Drinks Industry</span><div class="sr"></div></div>
+
+{{SECTION_SPR_CONTENT}}
+
+<div class="ni-strip">
+  <div class="ni-title">Also in Spirits — not covered above</div>
+  <ul class="ni-list">
+    {{SECTION_SPR_NOT_COVERED}}
+  </ul>
+</div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="fl">NYT · Semafor · Daily Upside · Rundown AI · Quartz · Vox · Reuters · FT · Expresso · Snacks · Just Drinks · VinePair · Wine Business · Global Drinks Intel · Section AI · Staying Ahead</div>
+  <div class="fr">Compiled from Gmail newsletters · {{BRIEFING_DATE_RANGE}}</div>
+</div>
+
+<!-- ═══ MODAL READER ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div>
+        <div class="modal-source" id="modalSource">Source</div>
+        <div class="modal-title" id="modalTitle">Title</div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕ Close</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <span class="modal-footer-label" id="modalFooterLabel">From your newsletters</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── NAV HIGHLIGHT ──
+function setA(el){document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+const sids=['geo','mkt','tech','hlth','mktg','radar','spr'];
+const nmap={};
+sids.forEach(id=>{nmap[id]=document.querySelector('.nb[href="#'+id+'"]')});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&nmap[e.target.id]){document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));nmap[e.target.id].classList.add('active')}})},{rootMargin:'-60px 0px -70% 0px',threshold:0});
+sids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+
+// ── MODAL DATA ──
+/* ARTICLES_PLACEHOLDER_START */
+const articles = {/*ARTICLES_DATA*/};
+/* ARTICLES_PLACEHOLDER_END */
+
+function openModal(id){
+  const a=articles[id];
+  if(!a)return;
+  document.getElementById('modalSource').textContent=a.source;
+  document.getElementById('modalTitle').textContent=a.title;
+  document.getElementById('modalBody').innerHTML=a.body;
+  document.getElementById('modalFooterLabel').textContent=a.label||'From your newsletters';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e.target===document.getElementById('modalOverlay'))closeModalDirect()}
+function closeModalDirect(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()});
+</script>
+</body>
+</html>
